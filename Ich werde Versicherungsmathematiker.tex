@@ -41,6 +41,7 @@
 \usepackage[export]{adjustbox}
 \usepackage{upgreek}
 \usepackage{dsfont}
+\usepackage{tensor}
 
 
 \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
@@ -363,8 +364,45 @@ $Y_i\geq$ kumulierter Gesamtaufwand des $i$-ten Risikos. $S^{ind}=\sum_{i=1}^nY_
 	\item Üblicherweise Haftungsbegrenzung für RV i.H.v. Vielfachem $m$ von $v_0$. Mehrere aneinandergereiht, s.d. man Layering erhält.
 \end{itemize}
 
+\subsubsection{nicht-proportionale Risikoteilung}
+\begin{itemize}
+	\item alle, die keine proportionale Aufteilung vorsehen
+	\item komplizierte Strukturen
+	\item schwierige quantitative Analysierbarkeit
+	\item gut zur Erreichung gezielter Effekte
+	\item dominierend: Abzugsfranchise
+		\begin{itemize}
+			\item Franchisegrenze absoluter Höhe $a$ zwischen VN und VU
+			\item Schaden in Höhe $X \ \Rightarrow \underbar{X}=min\{X,a\}$, d.h. VU übernimmt Teil, der $a$ übersteigt
+			\item Jahresfranchise: analog mit Franchisegrenze und Jahresgesamtschaden
+			\item Integralfranchise: wenn Grenze überschritten, übernimmt VU Schaden komplett
+			\item Zeitfranchise: VN trägt jeden Schaden bis zum Ablauf der Frist selbst
+		\end{itemize}
+	\item wichtigste Formen: 
+		\begin{itemize}
+			\item Schadenexzedentenrückversicherung: Priorität $a$ und Limit $l$, Übernahme des Teils, der $a$ übersteigt und unter $l$ liegt. Wirkt pro Risiko, eignet sich für LCs. Limitierte Layer als Differenz zweier unlimitierter Layer darstellbar. 
+			\item Kumulschadenexzedentenrückversicherung: Priorität $a^*$, Limit $l^*$ pro Kumulereignis (Anwendung auf Gesamtschäden von Kumulereignissen). Übernahme des die Prio übersteigenden Teils.
+			\item Jahresüberschadenexzedentenrückversicherung: Anwendung auf Jahresgesamtschaden, ebenfalls Priorität und Limit
+		\end{itemize}	
+\end{itemize}
 
-
+\subsubsection{Entschädigung}
+\begin{itemize}
+	\item Entschädigung $Z=g(X)$, $X \hat{=}$ Finanzaufwand, $g$ monoton wachsend, $g(x) \leq x$
+	\item Selbstbehalt des VN $X-Z=X-g(X)$
+	\item proportionale Selbstbeteiligung: $Z=g_1(X) \coloneqq q \cdot X, \ q \in (0,1)$
+	\item Abzugsfranchise: $Z=g_2(X) \coloneqq (X-a)^+, \ a>0$
+	\item Haftungsbegrenzung: $Z=g_3(X) \coloneqq min(X;I), \ I>0$
+	\item allgemeine Darstellung der Entschädigung:
+		\begin{equation}
+			Z=q \cdot min\{(X-a)^+,I\}= \begin{cases}
+				0 & X \leq a \\
+				q \cdot (X-a) & a<X \leq a+I \\
+				q \cdot I & a+i < X \\
+			\end{cases}
+		\end{equation}
+	\item Prämie basiert auf Erwartungswert der Entschädigung $E(Z) \coloneqq E[q \cdot min \{(X-a)^+,I\}]= q \cdot \int_a^{a+I}(1-F(x))dx$, wobei $F(x)$ die Verteilungsfunktion der Finanzaufwände ist.
+\end{itemize}
 
 
 
@@ -399,9 +437,27 @@ Exposuremaß: versicherungstechnische Risiko bzw Schadenbedarf eines Bestandes (
 \end{itemize}
 
 
+\chapter{Personenversicherungsmathematik}
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.8\textwidth]{Bilder/Korbinian.png}
+\end{figure}
 
-
+\subsubsection{Modell}
+\begin{itemize}
+	\item h Ereignisse bzgl. einer Person, das zuerst eintretende Ereignis führt zum Ausscheiden aus Gesamtheit
+	\item $h$: Anzahl der Ausscheideursachen, $T_i$ Zeitpunkt Eintritt des Ereignisses $i$, $X_i$ Alter bei Eintritt des Ereignisses $i$
+	\item $X_i = T_i-t^*$, $t^* \hat{=}$ Geburtszeitpunkt, $G \coloneqq \lfloor t^* \rfloor$ das Geburtsjahr
+	\item $X\coloneqq min\{X_i\}$ Ausscheidealter, $U\coloneqq min\{i \in \{1,...,h\}:X_i=X\}$: Ausscheideursache
+	\item $\tensor[_{1}]{q}{}_x^{(i)}(G)$: Wahrscheinlichkeit einer $x$-jährigen Person der HGSH mit Geburtsjahr $G$ innerhalb des Zeitintervalls $(x,x+1)$ mit der Ursache $i$ auszuscheiden. Verbleibewahrscheinlichkeit $p_x \coloneqq 1-q_x$
+	\item Allgemein: 
+	\begin{align}
+		\tensor[_{s}]{q}{}_x(G)\coloneqq \mathbb{P}[X \leq x+s | X>x] \\
+		\tensor[_{s}]{p}{}_x(G) \coloneqq 1-\tensor[_{s}]{q}{}_x(G) = \mathbb{P}[X>x+s|X>x]
+	\end{align}
+	\item mehrjährige Verbleibewahrscheinlichkeit (noch mind. $k$ Jahre in HGSH verbleiben): $\tensor[_{k}]{p}{}_x = \prod_{j=0}^{k-1}p_{x+j}$
+\end{itemize}
 
 
 
