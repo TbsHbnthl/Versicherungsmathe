@@ -416,6 +416,10 @@ $Y_i\geq$ kumulierter Gesamtaufwand des $i$-ten Risikos. $S^{ind}=\sum_{i=1}^nY_
 \item $b_i$: Jahresbeitrag des $i$-ten Vertrages
 \item $N$: (zufällige )Anzahl Schäden
 \item $X_j$: (zufällige) Höhe des $j$-ten Einzelschadens, $j=1,...,N$
+\item $r$: Anzahl der Tarifmerkmale
+\item $M_k$: $k$-tes Tarifmerkmal, $k=1,...,r$
+\item $n_k$: Anzahl der verschiedenen Ausprägungen des $k$-ten Merkmals
+\item $a_{j,k}$: $j$-te Ausprägung des $k$-Tarifmerkmals, $j=1,..., n_k$
 \end{itemize}
 
 \subsubsection{Schadenkennzahlen}
@@ -435,6 +439,85 @@ Exposuremaß: versicherungstechnische Risiko bzw Schadenbedarf eines Bestandes (
 \item durchschnittliche Versicherungssumme: $v_0:= \frac{\text{durchschn. kumulierte V-Summe}}{\text{Anzahl Jahreseinheiten}} = \frac{v}{n_0}$
 \item Schadengrad: $SG:=\frac{\text{Schadendurchschnitt}}{\text{durchschn. V-Summe}} = \frac{D}{v_0}$
 \end{itemize}
+
+\subsubsection{Grundlagen der Tarifierung}
+\begin{itemize}
+\item Jedem Risiko wird im Rahmen der Tarifierung zunächst der Vektor der Ausprägung $(a_{i_1,1}, a_{i_2, 2}, ..., a_{i_r, r})$ der ausgewählten Tarifmerkmale $M_1,...,M_r$ zugeordnet. Dieser Vektor legt dann genau ein der $t:= \prod_{k=1}^r n_k=$Anzahl der Tarifzellen verschiedenen Tarifzellen eindeutig fest.
+\item Für jedes $r$-Tupel $(i_1, ..., i_r)$ und damir für jede Tarifzelle ist die Nettorisikoprämie $b_{i_1, ..., i_r}$ zu bestimmen
+\item Tarifmodelle verwenden Schadenbedarfe und für jedes Merkmal $M_k$, $k=1,...,r$ und jede Ausprägung $a_{j,k}$, $j=1,...,n_k$ dieses $k$-ten Merkmals einen der insgesamt $n:= \sum_{k=1}^r n_k$ sogenannten Marginalparameter
+\item Dieses Marginalfaktoren bzw. summanden repräsentieren die verschiedenen Ausprägungen der Merkmale und quantifizieren den mittleren Einfluss der Ausprägung auf die Schadenaufwendungen und sind zu schätzen
+\item $u_{k,j}:=$ Marginalfaktor bzw. summand der $j$-ten Ausprägung des $k$-ten Merkmals
+\item Multiplikatives Modell: $b_{i_1, ..., i_r}:= sb\cdot \sum_{k=1}^r u_{k,i_k}$
+\item Additives Modell: $b_{i_1, ..., i_r} := sb + \sum_{k=1}^r u_{k, i_k}$
+\end{itemize}
+
+\subsubsection{Tarifierungsverfahren}
+Alles multiplikative Modelle: \\
+Vereinfachte Bezeichnungen: $A:=M_1$, $B:=M_2$ Merkmale mit $p:=n_1$, $q:=n_2$ Merkmalsausprägungen. Es gilt: $t=p\cdot q$ und $n=p+q$. Außerdem: $x_i:=u_{1,i}, i=1, ...,p$ und $y_j:=u_{2,j}, j=1,...,q$. Zusätzlich $s_{i,j}$ Gesamtschaden in Tarifzelle $(i,j)$, $v_{i,j}$ Volumenmaß und $sb_{i,j}=\frac{s_{i,j}}{v_{i,j}}$ Schadenbedarf. \\
+Es ergeben sich die Marginaldurchschnitt: $sb_{i,\circ}:=\frac{s_{i \bullet}}{v_{i\bullet}}$ und $sb_{\circ, j} := \frac{s_{\bullet j}}{v_{\bullet j}}$ und der Schadenbedarf $sb:=\frac{s_{\bullet \bullet}}{v_{\bullet \bullet}}$ \\
+Tarifierungsverfahren mit Marginaldurchschnitten:
+\begin{itemize}
+\item heuristischer Ansatz: Marginalfaktoren als normierte Marginaldurchschnitte der Risiken mit den jeweiligen Merkmalsausprägungen definieren:\\
+$x_i^{MD} := \frac{sb_{i\circ}}{sb}$ \\
+$y_j^{MD} := \frac{sb_{\circ j}}{sb}$ 
+\item Dann folgt: $b_{i,j}^{MD} := sb \cdot x_i^{MD} \cdot y_j^{MD}$
+\item Verfahren liefert meist wenig zufriedenstellende Ergebnisse $\rightarrow$ Weiterentwicklung erforderlich
+\end{itemize}
+Tarifierungsverfahren von Bailey $\&$ Simon:
+\begin{itemize}
+\item Ansatz orientiert sich an der Abstandsfunktion des $\chi^2$-Tests
+\item Versucht die Marginalfaktoren $x_i$, $y_j$ so zu wählen, dass die Summe der (gewichteten) quadratischen Abstände zwischen den beobachteten Gesamtschäden $s_{ij}$ und den kumulierten Nettorisikoprämien $v_{i,j}\cdot b_{i,j} = v_{i,j}\cdot sb \cdot x_i \cdot y_j$ über alle Zellen minimiert wird.
+\item Lösungen ergeben sich nach Nullsetzen der partiellen Ableitungen durch "p+q nichtlinearen Bestimmungsgleichungen" (nicht explizit lösbar, aber lösbar mit Fixpunktiteration)
+\item Mit den Grenzwerten der Iteration werden die Marginalfaktoren $x_i^{BS}$ und $y_j^{BS}$ gegeben (nicht eindeutig bestimmt)
+\item Es folgt: $b_{i,j}^{BS} := sb \cdot x_i^{BS} \cdot y_j^{BS}$
+\item Verfahren reagiert empfindlich auf Ausreißer und überschätzt beobachteten Gesamtschaden
+\end{itemize}
+Marginalsummenverfahren
+\begin{itemize}
+\item Ansatz: Für jede Ausprägung eines der beiden Merkmale sollen die kumulierten Nettorisikoprämien mit den kumulierten Gesamtschäden übereinstimmen.
+\item Grundlage zur Bestimmung der Marginalfaktoren sind Marginalsummengleichungen (\textbf{AUFSCHREIBEN??})
+\item Marginalsummengleichungen ergeben nichtlineares Gleichungssystem mit $p+q$ Gleichungen und Unbekannten
+\item Lösen ebenfalls mit Fixpunktiteration. 
+\item Bei Konvergenz ergeben sich die Grenzwerte als Marginalfaktoren $x_i^{MS}$ und $y_j^{MS}$
+\end{itemize}
+
+\subsubsection{Auswahl der Tarifmerkmale}
+1. Ermittlung von Risikomerkmalen
+\begin{itemize}
+\item Finden von statistisch signifikanten Merkmalen aus Daten zweierlei Arten: Schadendaten und Bestandsdaten
+\item Auswahl potenzieller Risikomerkmale permanent prüfen
+\item Besondere Beachtung der Großschäden durch "Kupierung": Schäden werden an sog. Kuperungsgrenzen abgeschnitten. Pro Schaden stellt die Grenze die max. Höhe dar, mit denen Schadenaufwendungen in den weiteren Analysen berücksichtigt werden
+\end{itemize}
+2. Auswahlkriterien einzelner Tarifmerkmale
+\begin{itemize}
+\item Wichtigste Kriterien: Signifikanz, möglichst unabhängig, Zulässigkeit, Messbarkeit, Anzahl der Tarifmerkmale, Stabilität/Robustheit, Bezug zum Risiko, Imageaspekte
+\end{itemize}
+3. Auswahlmethoden der Gesamtheit der Tarifmerkmale
+\begin{itemize}
+\item Einerseits: Gute Erklärung des Schadenaufkommens, andererseits: stochastische Unabhägigkeit oder Analysierung ihrer Wechselwirkung
+\item Für die Tarifmerkmale gemeinsame Verteilung: $P^{X_1,...,X_r}$
+\item Bei stochastischer Abhängigkeit steigt der Grad der Komplexität um $P$ zu berechnen deutlich an
+\item Moderne Ansätze: Einsatz von Copulas für die Abhängigkeiten
+\item Ansatz 1: Multiple Regressionsanalyse (\textbf{GENAUER? Kap 4})
+\item Ansatz 2: Verfahren der schrittweisen Auswahl (\textbf{GENAUER?})
+\end{itemize}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width = .8\textwidth]{Bilder/Tarifierung.png}
+\end{figure}
+
+
+\subsubsection{Basismodelle der Schadenreservierung}
+
+teset
+
+
+
+
+
+
+
+
 
 
 \chapter{Personenversicherungsmathematik}
