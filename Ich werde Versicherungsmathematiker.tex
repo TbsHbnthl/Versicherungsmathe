@@ -482,6 +482,10 @@ Marginalsummenverfahren
 \end{itemize}
 
 \subsubsection{Auswahl der Tarifmerkmale}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width = .8\textwidth]{Bilder/Tarifierung.png}
+\end{figure}
 1. Ermittlung von Risikomerkmalen
 \begin{itemize}
 \item Finden von statistisch signifikanten Merkmalen aus Daten zweierlei Arten: Schadendaten und Bestandsdaten
@@ -501,15 +505,101 @@ Marginalsummenverfahren
 \item Ansatz 1: Multiple Regressionsanalyse (\textbf{GENAUER? Kap 4})
 \item Ansatz 2: Verfahren der schrittweisen Auswahl (\textbf{GENAUER?})
 \end{itemize}
+
+
+\subsubsection{Abwicklungsmuster}
+
+
+
+
+\subsubsection{Basisverfahren der Schadenreservierung}
+
+Chain-Ladder-Verfahren
+\begin{itemize}
+\item Chain-Ladder Faktoren:
+\begin{equation}
+\hat{\varphi}_k^{CL} := \frac{\sum_{j=0}^{n-k} S_{j,k}}{\sum_{j=0}^{n-k} S_{j,k-1}}= \sum_{j=0}^{n-k} \frac{S_{j,k-1}}{\sum_{h=0}^{n-k} S_{h,k-1}} \cdot \frac{S_{j,k}}{S_{j,k-1}}, k=1,...,n
+\end{equation}
+\item Alle beobachtbaren Schadenstände werden verwendet (sonst nichts)
+\item Die aktuellen Schadenstände $S_{i,n-i}$, $i=0,...,n$, aus der Diagonale des Abwicklungsdreiecks mit Hilde der Chain-Ladder-Faktoren sukzessive auf das Niveau der späteren Abwicklungsjahre hochgerechnet.
+\item Ergebnisse werden als Chain-Ladder-Prädiktoren bezeichnet:
+\begin{equation}
+\hat{S}_{i,k}^{CL}:= \hat{\varphi}_k^{CL} \cdot \hat{S}_{i,k-1}^{CL}
+\end{equation}
+\item Reserven für Anfalljahr $i$ ergeben sich aus der Differenz der Prädiktoren für den erwarteten Entschadenstand und dem aktuellen Schadenstand:
+\begin{equation}
+\hat{R}_i^{CL}:= \hat{S}_{i,n}^{CL} - S_{i,n-i}
+\end{equation}
+\end{itemize}
+Loss-Development-Verfahren
+\begin{itemize}
+\item Stellt ein Abwicklungsmuster für Quoten und dass für diese Quoten $\gamma_0, ...,\gamma_n$ a-priori-Schätzer $\hat{\gamma}_0, ..., \hat{\gamma}_n$ unterliegen 
+\item Aktuelle Schadenstände $S_{i, n-i}$ per Division durch Schätzer auf Niveau des letzten Abwicklungsjahr hochgerechnet und mit Faktor $\hat{\gamma}_k$ auf Niveau des $k$-ten Abwicklungsjahrs zurück skaliert:
+\begin{equation}
+\hat{S}_{i,k}^{LD} := \hat{Y}_k \cdot \frac{S_{i,n-i}}{\hat{Y}_{n-i}}
+\end{equation}
+\end{itemize}
+Bornhuetter-Ferguson-Verfahren
+\begin{itemize}
+\item Ähnlich wie LD-Verfahren, aber zusätzlich zu a-priori Schätzer $\hat{\gamma}_0, ..., \hat{\gamma}_n$ für Quoten noch a-priori-Schätzer $\hat{\alpha}_0, ..., \hat{\alpha}_n$ für erwartete Schadenstände ($\alpha_i := E[S_{i.n}]$)
+\item aktuelle Schadenstände mit Hilfe der a-priori Schätzer linear fortgeschrieben.
+\begin{equation}
+\hat{S}_{i,k}^{BF} := S_{i,n-i}+(\hat{\gamma}_k-\hat{\gamma}_{n-i})\cdot \hat{\alpha_i}
+\end{equation}
+\item Durch Differenzbildung werden die BF-Prädiktoren für Zuwächste errechnet:
+\begin{equation}
+\hat{Z}_{i,k}^{BF} := \hat{S}_{i,k}^{BF} - \hat{S}_{i,k-1}^{BF} = (\hat{\gamma}_k - \hat{\gamma}_{k-1}) \cdot \hat{\alpha}_i
+\end{equation}
+\item iteriertes Bornhuetter-Ferguson-Verfahren: Nach der ersten Anwendung werden die Prädiktoren $\hat{S}_{i,n}^{BF}$ anstatt der $\hat{\alpha}_i$ verwendet (Einfluss wird so reduziert). Verfahren wird so lange wiederholt bis sich Grenzwerte einstellen als Prädiktoren
+\end{itemize}
+Additives Verfahren/ Incremental-Loss-Ratio-Verfahren
+\begin{itemize}
+\item Basiert auf Annahme, dass es Volumenmaße $\pi_0, ..., \pi_n$ für die Anfalljahre $i=0,...,n$ gibt.
+\item Außerdem Abwicklungsmuster für die erwarteten (Schaden-)Quoten-Zuwächse $\frac{E[Z_{i,k}]}{\pi_i}$, sodass es Parameter $\zeta_0,...,\zeta_n$ gibt mit $\zeta_k=\frac{E[Z_{i,k}]}{\pi_i}$
+\item Schätzer für relative Zuwächste werden additive Schadenquotenzuwächse verwendet:
+\begin{equation}
+\zeta_k^{AD} := \frac{\sum_{j=0}^{n-k} Z_{j,k}}{\sum_{j=0}^{n-k} \pi_j} = \sum_{j=0}^{n-k} \frac{\pi_j}{\sum_{h=0}^{n-k} \pi_h} \cdot \frac{Z_{j,k}}{\pi_j}
+\end{equation}
+\item Schätzer setzen für den Zuwachs des $k$-ten Abwicklungsjahr die Summe sämtlicher Zuwächse im $k$-Abwicklungsjahr zur Summe der zugehörigen Volumenmaße
+\item Mit diesen Schätzern erhält man Prädiktoren für Zuwächse und Schadenstände:
+\begin{align}
+\hat{Z}_{i,k} := \pi_i \cdot \hat{\zeta}_k^{AD} \\
+\hat{S}_{i,k}^{AD} := S_{i,n-i} + \sum_{j=n-i+1}^k \hat{Z}_{i,j}^{AD}
+\end{align}
+\end{itemize}
+Cape-Cod-Verfahren
+\begin{itemize}
+\item Wie Additives Verfahren Volumenmaße $\pi_0,...,\pi_n$. Zusätzlich a-priori-Schätzer $\hat{\gamma}_0,...,\hat{\gamma}_n$ für Quoten
+\item Annahme: erwartete Schadenquoten unabhängig von Anfalljahr $i$, daher existiert Parameter $\kappa$: $\frac{E[S_{i,n}]}{\pi_i}=\kappa$
+\item $\kappa$ wird geschätzt:
+\begin{equation}
+\hat{\kappa}^{CC} = \frac{\sum_{j=0}^n S_{j,n-j}}{\sum_{j=0}^n \hat{\gamma}_{n-j} \cdot \pi_j} = \sum_{j=0}^n \frac{\hat{\gamma}_{n-j} \cdot \pi_j}{\sum_{h=0}^n \hat{\gamma}_{n-h} \cdot \pi_h} \cdot \frac{S_{j,n-j}}{\hat{\gamma}_{n-j}\cdot \pi_j}
+\end{equation}
+\item Cape-Code-Prädiktoren: 
+\begin{equation}
+\hat{S}_{i,k}^{CC} := S_{i,n-i} + (\hat{\gamma}_k - \hat{\gamma}_{n-i}) \cdot \pi_i \cdot \hat{\kappa}^{CC}
+\end{equation}
+\end{itemize}
+Alle Verfahren sind Spezialfälle von Bornhuetter-Ferguson-Verfahrens. Unterschieden nur durch die Schätzung der Parameter.
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width = .8\textwidth]{Bilder/Tarifierung.png}
+	\includegraphics[width=.8\textwidth]{Bilder/Abwicklungsverfahren.png}
+\end{figure}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{Bilder/Abwicklungsverfahren_PundC.png}
 \end{figure}
 
+\subsubsection{Erweiterung der Basisverfahren}
+1. Ausreißereffekte \\
+Besser, wenn a-priori-Schätzer vorhanden. Daher Chain-Ladder sehr anfällig und Cape-Cod am besten
 
-\subsubsection{Basismodelle der Schadenreservierung}
+2. Inflation\\
+Separationsverfahren bietet Möglichkeit, Kalendereffekte zu berücksichtigen und eine Art Inflationsvereinigung vorzunehmen. Kurze Zusammenfassung: Es gibt Parameter für Abwicklungsjahre und für Kalenderjahre und für die Zuwächse gilt: $E[Z_{i,k}]=v_i\cdot \gamma_{i+k}\cdot \vartheta_k$. Schätzung der Parameter durch Marginalsummengleichungen. Durch bspw. Extrapolation Schätzung der Inflationparameter der nächsten Jahre. Am Ende: $\hat{Z}_{i,k}= v_i \cdot \hat{\gamma}_{i+k} \cdot \hat{\vartheta}_k$ 
 
-teset
+3. Nachlauf\\
+Annahme: Schäden innerhalb von $n+1$ Jahren vollständig abgewickelt. In Ausnahmefällen noch nach dem $n$-ten Jahr Änderungen in Schadenständen -> "Nachlauf" \\
+
 
 
 
