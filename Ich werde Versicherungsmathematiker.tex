@@ -422,6 +422,8 @@ $Y_i\geq$ kumulierter Gesamtaufwand des $i$-ten Risikos. $S^{ind}=\sum_{i=1}^nY_
 \item $a_{j,k}$: $j$-te Ausprägung des $k$-Tarifmerkmals, $j=1,..., n_k$
 \end{itemize}
 
+
+
 \subsubsection{Schadenkennzahlen}
 \begin{itemize}
 \item Schadendaten: Zeitpunkt, Art und Ursache, Sachlicher Bezug, Ort, Entschädigung
@@ -450,6 +452,8 @@ Exposuremaß: versicherungstechnische Risiko bzw Schadenbedarf eines Bestandes (
 \item Multiplikatives Modell: $b_{i_1, ..., i_r}:= sb\cdot \sum_{k=1}^r u_{k,i_k}$
 \item Additives Modell: $b_{i_1, ..., i_r} := sb + \sum_{k=1}^r u_{k, i_k}$
 \end{itemize}
+
+
 
 \subsubsection{Tarifierungsverfahren}
 Alles multiplikative Modelle: \\
@@ -481,6 +485,8 @@ Marginalsummenverfahren
 \item Bei Konvergenz ergeben sich die Grenzwerte als Marginalfaktoren $x_i^{MS}$ und $y_j^{MS}$
 \end{itemize}
 
+
+
 \subsubsection{Auswahl der Tarifmerkmale}
 \begin{figure}[ht]
 	\centering
@@ -509,6 +515,29 @@ Marginalsummenverfahren
 
 \subsubsection{Abwicklungsmuster}
 
+1. für Anteile $\vartheta$
+\begin{itemize}
+\item Für jedes Anfalljahr $i$ wird der erwartete Zuwachs im $k$-ten Abwicklungsjahr im Verhältnis zum erwarteten Endschadenstand definiert: $\vartheta_k = \frac{E[Z_{i,k}]}{E[S_{i,n}]}$, $i,k=0,...,n$ (Anteile unabhängig von Anfalljahr)
+\item Es gilt $\sum_{k=0}^n =1$.
+\item Bei Schadenanzahl bzw. -zahlungen gilt: $\vartheta_k >0$
+\end{itemize}
+2. für Quoten $\gamma$
+\begin{itemize}
+\item Für jedes Anfalljahr $i$ wird der erwartete Schadenstand im $k$-ten Abwicklungsjahr im Verhältnis zu dem erwarteten Endschadenstand definiert: $\gamma_k = \frac{S[Z_{i,k}]}{E[S_{i,n}]}$, $i,k=0,...,n$ (Quoten unabhängig von Anfalljahr)
+\item Es gilt $\gamma_n=1$
+\item Bei Schadenanzahl bzw. -zahlungen gilt: $\gamma_0 < ... < \gamma_n$
+\end{itemize}
+3. Für Faktoren $\varphi$
+\begin{itemize}
+\item Für jedes Anfalljahr wird der erwartete Schadenstand im $k$-ten Abwicklungsjahr im Verhältnis zum erwarteten Schadenstand im $(k-1)$-ten Abwicklungsjahr definiert: $\varphi_k = \frac{S[S_{i,k}]}{E[S_{i,k-1}]}$, $i,k=0,...,n$
+\item Bei Schadenanzahl bzw. -zahlungen gilt: $\varphi_k >1$
+\end{itemize}
+4. Für Schadenquotenzuwächse
+\begin{itemize}
+\item In Anwendung verwendet man die Prämieneinnahmen der Anfalljahre für Volumenmaße $\pi_0,..., \pi_n$
+Erwarteter Schadenquotenzuwachs des $k$-ten Abwicklungsjahrs für das $i$-te Anfalljahr: $\frac{E[Z_{i,k}]}{\pi_i}$, $i,k=0,...,n$
+\item erwartete Endschadenquote: $\frac{E[S_{i,n}]}{\pi_i}$
+\end{itemize}
 
 
 
@@ -590,6 +619,9 @@ Alle Verfahren sind Spezialfälle von Bornhuetter-Ferguson-Verfahrens. Unterschi
 	\includegraphics[width=\textwidth]{Bilder/Abwicklungsverfahren_PundC.png}
 \end{figure}
 
+
+
+\newpage
 \subsubsection{Erweiterung der Basisverfahren}
 1. Ausreißereffekte \\
 Besser, wenn a-priori-Schätzer vorhanden. Daher Chain-Ladder sehr anfällig und Cape-Cod am besten
@@ -598,8 +630,7 @@ Besser, wenn a-priori-Schätzer vorhanden. Daher Chain-Ladder sehr anfällig und
 Separationsverfahren bietet Möglichkeit, Kalendereffekte zu berücksichtigen und eine Art Inflationsvereinigung vorzunehmen. Kurze Zusammenfassung: Es gibt Parameter für Abwicklungsjahre und für Kalenderjahre und für die Zuwächse gilt: $E[Z_{i,k}]=v_i\cdot \gamma_{i+k}\cdot \vartheta_k$. Schätzung der Parameter durch Marginalsummengleichungen. Durch bspw. Extrapolation Schätzung der Inflationparameter der nächsten Jahre. Am Ende: $\hat{Z}_{i,k}= v_i \cdot \hat{\gamma}_{i+k} \cdot \hat{\vartheta}_k$ 
 
 3. Nachlauf\\
-Annahme: Schäden innerhalb von $n+1$ Jahren vollständig abgewickelt. In Ausnahmefällen noch nach dem $n$-ten Jahr Änderungen in Schadenständen -> "Nachlauf" \\
-
+Annahme: Schäden innerhalb von $n+1$ Jahren vollständig abgewickelt. In Ausnahmefällen noch nach dem $n$-ten Jahr Änderungen in Schadenständen -> "Nachlauf" 
 
 
 
