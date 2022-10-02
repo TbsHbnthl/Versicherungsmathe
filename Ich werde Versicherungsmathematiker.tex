@@ -663,6 +663,108 @@ Annahme: Schäden innerhalb von $n+1$ Jahren vollständig abgewickelt. In Ausnah
 	\item mehrjährige Verbleibewahrscheinlichkeit (noch mind. $k$ Jahre in HGSH verbleiben): $\tensor[_{k}]{p}{}_x = \prod_{j=0}^{k-1}p_{x+j}$
 \end{itemize}
 
+\subsubsection{Typische Rechnungsgrundlagen}
+\begin{itemize}
+	\item biometrische Rechnungsgrundlagen / Ausscheideordnung
+	\item Rechnungszins
+	\item Kosten
+\end{itemize}
+
+\subsubsection{Risikomerkmale von Ausscheidewahrscheinlichkeiten}
+\begin{itemize}
+	\item Eigenschaften, die in statistisch überprüfbarer Weise mit dem Erwartungswert zusammenhängen
+	\item gleichzeitig mehrere Merkmale von Bedeutung (eines reicht nicht)
+	\item Annahme: Ausscheidewahrscheinlichkeit hängt nur von den Merkmalen ab
+	\item vieles wird nicht berücksichtigt
+\end{itemize}
+
+\subsubsection{Kosten}
+\begin{itemize}
+	\item Kostenarten: Abschluss ($\alpha$), Inkasso ($\beta$), Verwaltung ($\gamma$)
+	\item Unterschieden werden proportionale (bezogen auf Beitrag oder VS) und Stückkosten
+\end{itemize}
+
+\subsubsection{Erfüllungsbetrag}
+\begin{itemize}
+	\item Der Erfüllungsbetrag einer ungewissen Verpflichtung $B$ ist extensional definiert durch die Menge seiner Realisierungen $b_m \coloneqq \sum_n v^{t_n^{(m)}}s_n^{(m)}$ für $m=0,1,..$, d.h. die Menge der finanzmathematischen Barwerte der ungewissen Verpflichtung.
+\end{itemize}
+
+\subsubsection{Leistungsbarwert}
+\begin{itemize}
+	\item Barwert der Gesamtverpflichtung gegenüber einer Person: 
+	\begin{equation}
+		\tensor[_{0}]{B}{}_x^{L}= \sum_{k\geq 0}v^k \tensor[_{k}]{p}{}_x \tensor[_{k}]{\hat{L}}{}_x
+	\end{equation}
+	\begin{equation}
+		\tensor[_{k}]{\hat{L}}{}_x \coloneqq	\tensor[_{k}]{L}{}_x^{(0)}+\sum_{i=1}^h \tensor[_{k}]{L}{}_x^{(i)}q_{x+k}^{(i)}, \ k = 0,1,...
+	\end{equation}
+	\item $\tensor[_{k}]{\hat{L}}{}_x$: Erwartungswert der gesamten Leistung, die durch Erreichen des Altersintervalls $]x+k,x+k+1[$ ausgelöst werden kann, diskontiert auf Beginn des Jahres
+	\item $\tensor[_{k}]{L}{}_x^{(0)}$: Erwartungswert der Leistungen, die durch Erreichen des Alters $x+k$ in der Hauptgesamtheit verursacht werden, diskontiert auf Jahresbeginn
+	\item $\tensor[_{k}]{L}{}_x^{(i)}$: Erwartungswert der Leistungen, die durch das Ausscheiden im Jahr $]x+k, x+k+1[$ aus der Ursache $i$ verursacht werden, soweit nicht durch $\tensor[_{k}]{L}{}_x^{(0)}$ erfasst, diskontiert auf Jahresbeginn
+	\item Leistungsbarwert zum Alter $x+m$:
+	\begin{equation}
+		\tensor[_{m}]{B}{}_x^{L}=\sum_{k\geq0}v^k \tensor[_{k}]{p}{}_{x+m} \tensor[_{m+k}]{\hat{L}}{}_x, \ \ \  m=0,1,...
+	\end{equation}
+\end{itemize}
+
+\subsubsection{Prämienbarwerte}
+\begin{itemize}
+	\item Prämienbarwert zum Alter $x$ gegenüber einer Person:
+	\begin{equation}
+		\tensor[_{0}]{B}{}_x^{P} = \sum_{k \geq 0} v^k \tensor[_{k}]{p}{}_x \tensor[_{k}]{\hat{P}}{}_x
+	\end{equation}
+	\item $\tensor[_{k}]{\hat{P}}{}_x$: Erwartungswert der Prämienleistung des Jahres $]k,k+1]$, die durch Erreichen des Alters $x+k$ in der Hauptgesamtheit verursacht werden, diskontiert auf Jahresbeginn
+	\item Prämienbarwert zum Alter $x+m$: $\tensor[_{m}]{B}{}_x^P = \sum_{k \geq 0}v^k \tensor[_{k}]{p}{}_{x+m} \tensor[_{k+m}]{\hat{P}}{}_x, \ \ m =0,1,...$
+\end{itemize}
+
+\subsubsection{Reserven}
+\begin{itemize}
+	\item Prospektive Reserve $\tensor[_{m}]{V}{}_x^{pro}$: Betrag, der zum jeweiligen Stichtag verfügbar sein muss, um Vertrag im Mittel zu erfüllen
+	\item Retrospektive Reserve $\tensor[_{m}]{V}{}_x^{retro}$: Betrag, der rechnungsmäßig nach Abrechnung von Einnahmen und Ausgaben noch vorhanden ist
+	\item Nach $m$ Jahren soll die Differenz zwischen Barwert zukünftiger Leistungen und Barwert zukünftiger Prämien durch die Reserve gedeckt sein: 
+	\begin{equation}
+		\tensor[_{m}]{V}{}_x^{pro} = \tensor[_{m}]{B}{}_x^{L} - \tensor[_{m}]{B}{}_x^{P} = \sum_{k \geq 0} v^k \tensor[_{k}]{p}{}_{x+m}(\tensor[_{m+k}]{\hat{L}}{}_x - \tensor[_{m+k}]{\hat{P}}{}_x)
+	\end{equation}
+	\begin{equation}
+		\tensor[_{m}]{V}{}_x^{retro} = \frac{1}{v^m \tensor[_{m}]{p}{}_x} \left[K+\sum_{k=0}^{m-1}v^k \tensor[_{k}]{p}{}_x (\tensor[_{k}]{\hat{P}}{}_x - \tensor[_{k}]{\hat{L}}{}_x) \right]
+	\end{equation}
+	\begin{equation}
+		\tensor[_{m}]{V}{}_x^{pro} - \tensor[_{m}]{V}{}_x^{retro} = \frac{1}{v^m \tensor[_{m}]{p}{}_x} \left(\tensor[_{0}]{V}{}_x^{pro} - \tensor[_{0}]{V}{}_x^{retro}\right)
+	\end{equation}
+\end{itemize}
+
+\subsubsection{Versicherungsmathematische Bilanzgleichung}
+\begin{itemize}
+	\item $\tensor[_{m}]{V}{}_x + \tensor[_{m}]{\hat{P}}{}_x = \tensor[_{m}]{\hat{L}}{}_x + vp_{x+m} \ \tensor[_{m+1}]{V}{}_x$
+	\item Spar- und Risikoprämie: $\tensor[_{m}]{V}{}_x + \tensor[_{m}]{\hat{P}}{}_x = \tensor[_{m}]{P}{}_x^S + \tensor[_{m}]{P}{}_x^R$
+\end{itemize}
+
+\subsubsection{Satz von Cantelli}
+\begin{itemize}
+	\item braucht man das?
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
