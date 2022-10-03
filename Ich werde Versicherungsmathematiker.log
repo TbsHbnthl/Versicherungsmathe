@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.3.2)  2 OCT 2022 20:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.3.2)  3 OCT 2022 10:23
 entering extended mode
 **"./Ich werde Versicherungsmathematiker.tex"
 ("Ich werde Versicherungsmathematiker.tex"
@@ -828,44 +828,10 @@ LaTeX Info: Redefining \nameref on input line 118.
 \c@lstlisting=\count340
  [1
 
-{C:/Users/Bened/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] ("Ich werde Ver
-sicherungsmathematiker.toc"
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
- 38.
+{C:/Users/Bened/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
 
-(A:\MikTex\tex/latex/psnfss\ot1ztmcm.fd
-File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
-)
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
- 38.
+Package hyperref Warning: old toc file detected, not used; run LaTeX again.
 
-(A:\MikTex\tex/latex/psnfss\omlztmcm.fd
-File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
-)
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
- 38.
-
-(A:\MikTex\tex/latex/psnfss\omsztmcm.fd
-File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
-)
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
- 38.
-
-(A:\MikTex\tex/latex/psnfss\omxztmcm.fd
-File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
-)
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 3
-8.
- (A:\MikTex\tex/latex/psnfss\ot1ptm.fd
-File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-)
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 38.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 38.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 38.
-)
 \tf@toc=\write4
 \openout4 = `"Ich werde Versicherungsmathematiker.toc"'.
 
@@ -883,7 +849,41 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
 30.
 (A:\MikTex\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [2
+)
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
+ 156.
+ (A:\MikTex\tex/latex/psnfss\ot1ztmcm.fd
+File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
+ 156.
+(A:\MikTex\tex/latex/psnfss\omlztmcm.fd
+File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
+ 156.
+
+(A:\MikTex\tex/latex/psnfss\omsztmcm.fd
+File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
+ 156.
+
+(A:\MikTex\tex/latex/psnfss\omxztmcm.fd
+File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 1
+56.
+ (A:\MikTex\tex/latex/psnfss\ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 156.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 156.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 156.
+[2
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 169--170
@@ -899,7 +899,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [3]
-<Bilder/Sterbetafelbsp.png, id=62, 911.405pt x 559.08875pt>
+<Bilder/Sterbetafelbsp.png, id=57, 911.405pt x 559.08875pt>
 File: Bilder/Sterbetafelbsp.png Graphic file (type png)
 <use Bilder/Sterbetafelbsp.png>
 Package pdftex.def Info: Bilder/Sterbetafelbsp.png  used on input line 198.
@@ -932,7 +932,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [6]
-<Bilder/ZustandsmodellPersVers.png, id=94, 840.13875pt x 584.1825pt>
+<Bilder/ZustandsmodellPersVers.png, id=89, 840.13875pt x 584.1825pt>
 File: Bilder/ZustandsmodellPersVers.png Graphic file (type png)
 <use Bilder/ZustandsmodellPersVers.png>
 Package pdftex.def Info: Bilder/ZustandsmodellPersVers.png  used on input line 
@@ -1023,7 +1023,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [13]
-<Bilder/Tarifierung.png, id=143, 546.54187pt x 361.35pt>
+<Bilder/Tarifierung.png, id=138, 546.54187pt x 361.35pt>
 File: Bilder/Tarifierung.png Graphic file (type png)
 <use Bilder/Tarifierung.png>
 Package pdftex.def Info: Bilder/Tarifierung.png  used on input line 493.
@@ -1077,13 +1077,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [17]
-<Bilder/Abwicklungsverfahren.png, id=175, 663.98062pt x 280.79906pt>
+<Bilder/Abwicklungsverfahren.png, id=170, 663.98062pt x 280.79906pt>
 File: Bilder/Abwicklungsverfahren.png Graphic file (type png)
 <use Bilder/Abwicklungsverfahren.png>
 Package pdftex.def Info: Bilder/Abwicklungsverfahren.png  used on input line 61
 5.
 (pdftex.def)             Requested size: 341.43436pt x 144.39247pt.
-<Bilder/Abwicklungsverfahren_PundC.png, id=176, 638.385pt x 275.52937pt>
+<Bilder/Abwicklungsverfahren_PundC.png, id=171, 638.385pt x 275.52937pt>
 File: Bilder/Abwicklungsverfahren_PundC.png Graphic file (type png)
 <use Bilder/Abwicklungsverfahren_PundC.png>
 Package pdftex.def Info: Bilder/Abwicklungsverfahren_PundC.png  used on input l
@@ -1110,7 +1110,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [19]
 Kapitel 3.
-<Bilder/Korbinian.png, id=192, 762.85pt x 1047.915pt>
+<Bilder/Korbinian.png, id=187, 762.85pt x 1047.915pt>
 File: Bilder/Korbinian.png Graphic file (type png)
 <use Bilder/Korbinian.png>
 Package pdftex.def Info: Bilder/Korbinian.png  used on input line 648.
@@ -1131,13 +1131,13 @@ Kapitel 4.
 Package textcomp Info: Symbol \textasciidieresis not provided by
 (textcomp)             font family ptm in TS1 encoding.
 (textcomp)             Default family used instead on input line 695.
-<Bilder/Zustandsmodell_Leben1.png, id=207, 196.48407pt x 63.23625pt>
+<Bilder/Zustandsmodell_Leben1.png, id=202, 196.48407pt x 63.23625pt>
 File: Bilder/Zustandsmodell_Leben1.png Graphic file (type png)
 <use Bilder/Zustandsmodell_Leben1.png>
 Package pdftex.def Info: Bilder/Zustandsmodell_Leben1.png  used on input line 7
 05.
 (pdftex.def)             Requested size: 235.7797pt x 75.8831pt.
-<Bilder/Zustandsmodell_Leben2.png, id=208, 173.89969pt x 108.405pt>
+<Bilder/Zustandsmodell_Leben2.png, id=203, 173.89969pt x 108.405pt>
 File: Bilder/Zustandsmodell_Leben2.png Graphic file (type png)
 <use Bilder/Zustandsmodell_Leben2.png>
 Package pdftex.def Info: Bilder/Zustandsmodell_Leben2.png  used on input line 7
@@ -1146,7 +1146,7 @@ Package pdftex.def Info: Bilder/Zustandsmodell_Leben2.png  used on input line 7
 [22
 
  <./Bilder/Zustandsmodell_Leben1.png>]
-<Bilder/SterbetafelBsp2.png, id=218, 441.14813pt x 173.89969pt>
+<Bilder/SterbetafelBsp2.png, id=213, 441.14813pt x 173.89969pt>
 File: Bilder/SterbetafelBsp2.png Graphic file (type png)
 <use Bilder/SterbetafelBsp2.png>
 Package pdftex.def Info: Bilder/SterbetafelBsp2.png  used on input line 721.
@@ -1184,10 +1184,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [24]
-
-LaTeX Warning: Command \" invalid in math mode on input line 779.
-
-Missing character: There is no ä in font zptmcm7t!
 
 LaTeX Warning: Command \" invalid in math mode on input line 781.
 
@@ -1316,8 +1312,8 @@ as not changed.
 (rerunfilecheck)             Checksum: C46533D3F438CBA6D3164649F9796B74;353.
  ) 
 Here is how much of TeX's memory you used:
- 15734 strings out of 479618
- 233704 string characters out of 2881547
+ 15732 strings out of 479618
+ 233575 string characters out of 2881547
  771560 words of memory out of 3000000
  32399 multiletter control sequences out of 15000+200000
  450649 words of font info for 102 fonts, out of 3000000 for 9000
@@ -1331,10 +1327,10 @@ sfonts/cm/cmsy10.pfb><A:/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 <A:/MikTex/fonts/type1/urw/symbol/usyr.pfb><A:/MikTex/fonts/type1/urw/symbol/us
 yr.pfb><A:/MikTex/fonts/type1/urw/times/utmb8a.pfb><A:/MikTex/fonts/type1/urw/t
 imes/utmr8a.pfb><A:/MikTex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "Ich werde Versicherungsmathematiker.pdf" (27 pages, 4464480 
+Output written on "Ich werde Versicherungsmathematiker.pdf" (27 pages, 4463364 
 bytes).
 PDF statistics:
- 315 PDF objects out of 1000 (max. 8388607)
+ 310 PDF objects out of 1000 (max. 8388607)
  114 named destinations out of 1000 (max. 500000)
  86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
