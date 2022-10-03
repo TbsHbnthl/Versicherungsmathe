@@ -777,4 +777,169 @@ Annahme: Schäden innerhalb von $n+1$ Jahren vollständig abgewickelt. In Ausnah
 
 
 
+\chapter{Lebensversicherungsmathematik}
+
+\subsubsection{Rechtliche Grundlagen}
+Versicherungsaufsichtsgesetz (§ 138 (1) VAG)
+\begin{itemize}
+\item angemessene versicherungsmathematische Annahmen
+\item Prämien finanzieren Verpflichtungen und Dekcungsrückstellungen $\rightarrow$ keine dauerhaft Finanzierung, die nicht aus Prämien stammen
+\end{itemize}
+
+Deckungsrückstellungsverordnung (§5 (1) DeckRV)
+\begin{itemize}
+\item Rechnungsgrundlagen nicht nur mit Erwartungswerten bestimmen
+\item Änderungen und Schwankungen der Daten berücksichtigen
+\end{itemize}
+
+Versicherungsvertragsgesetz (§ 163 (1) VVG)
+\begin{itemize}
+\item Prämienanpassung bei nicht nur vorübergehender und nicht ¨
+voraussehbarer Änderung  (”Notfall-Paragraph“)
+\item Anpassungen – wenn überhaupt – nur in der BU-Versicherung
+\end{itemize}
+
+Außerdem keine Differenzierung nach Geschlechtern erlaubt.
+
+\subsubsection{Zustandsmodelle}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=1.2]{Bilder/Zustandsmodell_Leben1.png}
+\end{figure}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=1.2]{Bilder/Zustandsmodell_Leben2.png}
+\end{figure}
+
+\vspace{1cm}
+\subsubsection{Sterbetafeln}
+In der Lebensversicherung kommen Sterbetafeln der DAV zum Einsatz.\\
+Unterscheidung: \\
+- 1. Ordnung: Werte enthalten Sicherheiten\\
+- 2. Ordnung: Werten entsprechen Erwartungswert
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=1]{Bilder/SterbetafelBsp2.png}
+\end{figure}
+Außerdem stellt die DAV Invaliditätswahrscheinlchkeiten zur Verfügung. Das enthält Wahrscheinlichkeiten zur Sterblichkeit von Invaliden sowie Reaktivierung. Ebenfalls 1. und 2. Ordnung
+
+\subsection{Rechnugszins}
+Für Rechnungszins der Prämienkalkulation:
+\begin{itemize}
+\item Einschränkung der Vorsichtsprinzip
+\item aber: im Prinzip frei wählbar -> Festlegung Verantwortung von Aktuaren
+\end{itemize}
+Rechnungszins für Deckungsrückstellungen:
+\begin{itemize}
+\item Verträge mit Zinsgarantie:
+\begin{itemize}
+\item Beachten von HHöchstrechnungszins aus §2 (1) DeckRV
+\item Rechnungszins bei Vertragabschluss gilt für ganze Laufzeit
+\end{itemize}
+\item Abweichungen zun Rechnungszins der Prämienkalkulation möglich
+\end{itemize}
+
+\subsubsection{Kosten}
+\begin{itemize}
+\item Abschlusskosten ($\alpha$-Kosten):\\
+zu beachten ist Höchstzillmersatz aus §4 (1) DeckRV kosten für Abschlussprovision, Fixkosten im Außendienst, Werbung, Angebotserstellung, Policierung, etc
+\item Inkassokosten ($\beta$- Kosten):\\
+Kosten für Beitragseinzug, Agenturinkasso, etc.
+\item Verwaltungskosten ($\gamma$-Kosten):
+Kosten für die Bestandsverwaltung, Bearbeitung von Leistungen, Vertragsänderungen, etc.
+\end{itemize}
+
+\subsubsection{Lebensversicherungsprodukte (Auswahl)}
+\begin{itemize}
+\item Risikoversicherungen: einmalige Zahlung im Todesfall, bspw. Risikolebensversicherung, Todesfallversicherung
+\item Kapitalversicherungen: einmalige Zahlung im Erlebensfall, bspw. Erlebensfallversicherung, Gemische Versicherung
+\item Rentenversicherung: regelmäßige Zahlungen im Erlebensfall, bspw. sofort beginnende Rentenversicherung, aufgeschobene Rentenversicherung
+\end{itemize}
+
+\subsubsection{Wiederholung}
+\begin{itemize}
+\item Person zum Zeitpunkt $t=0$ mit Alter $x$, dann gilt:
+\begin{equation}
+\tensor[_{s}]{B}{}_x^L = \sum_{k\geq 0} v^k \cdot \tensor[_k]{p}{}_x \cdot \tensor[_k]{\hat{L}}{}_x
+\end{equation}
+mit $\tensor[_k]{\hat{L}}{}_x$ Erwartungswert des barwerts aller Leistungen, die mit dem Erreichen des Alters $x+k$ in der HGSH verbunden sind
+
+\item Erlebensfallversicherung: V-Summe $S$ wird bei Erlebens des Zeitpunkts $n$ ausgezahlt: $\tensor[_{s}]{B}{}_x^L = E(L) = v^n \cdot \tensor[_n]{p}{}_x\cdot S = S \cdot \tensor[_n]{E}{}_x$
+\item Risikolebensversicherung: V-Summe $S$ wird ausgezahlt bei Tod bis Zeitpunkt $n$: $\tensor[_{s}]{B}{}_x^L = E(L) = \sum_{k=0}^{n-1} v^k \cdot \tensor[_k]{p}{}_x \cdot q_{x+k} \cdot v \cdot S = S \cdot \tensor[_{|n}]{A}{}_x$
+\end{itemize}
+
+\subsubsection{Standardformeln und Bezeichnungen}
+$x$-jährige Person, Vertrag mit Laufzeit $n$ Jahre, V-Summe $S$ und Zins $i$. Ab Punkt 3: Rentenhöhen betrage $R$ und wird jährlich vorschüssig bezahlt.
+\begin{itemize}
+\item Gemischte Versicherung: Leistung bei Tod innerhalb der Laufzeit oder bei Erleben Laufzeitende: \\
+$E(L) = S\cdot (\tensor[_{|n}]{A}{}_x + \tensor[_n]{E}{}_x) =: S\cdot A_{x:n}$
+\textbf{Hier um letztes n eigentlich zwei Linien, aber wie?}
+\item Todelfallversicherung: Leistung bei Tod ($\omega$ kalkulatorisches Höchstalter) \\
+$E(L) = S \cdot \tensor[_{|\omega -x}]{A}{}_x =: S\cdot A_x$
+\item Leibrente:\\
+$E(L) = R + R \cdot \tensor[_1]{E}{}_x + r \cdot \tensor[_2]{E}{}_x + ... =: R \cdot ä_x$
+\item Aufgeschobene Leibrente um $m$ Jahre:\\
+$E(L)= R \cdot \tensor[_m]{E}{}_x + R \cdot \tensor[_{m+1}]{E}{}_x + ... =: R \cdot \tensor[_{m|}]{ä}{}_x$
+\item Temporäre Leibrente mit Dauer von $n$ Jahre: \\
+$E(L) = R + R \cdot \tensor[_1]{E}{}_x + R \cdot \tensor[_2]{E}{}_x + ... + R \cdot \tensor[_{n-1}]{E}{}_x =: R \cdot ä_{x:n} $ \textbf{Hier um letztes n eigentlich zwei Linien, aber wie? Und wie ä ?? Folie 25}
+\end{itemize}
+
+\subsubsection{Umgang mit Kosten}
+\begin{itemize}
+\item Abschlusskosten (blau exemplarisch):\\
+- \textcolor{blue}{einmalig} zu Vertragsbeginn: $\alpha^Z$ (Promillesatz) der \textcolor{blue}{Beitragssumme}\\
+- \textcolor{blue}{jährlich vorschüssig $\alpha^\gamma$} (Promillesatz) der V-Summe
+\item Inkassokosten: \textcolor{blue}{jährlich vorschüssig $\beta$} des jährlichen Beitrags
+\item Verwaltungskosten: \textcolor{blue}{jährlich vorschüssig $\gamma$} der V-Summe
+\end{itemize}
+Leistungsbarwert der Kosten: (\textbf{Hier auch ä und zwei Striche)}
+\begin{equation}
+\alpha^Z \cdot n \cdot P + \alpha^\gamma \cdot S \cdot ä_{x:n} + \beta \cdot P \cdot ä_{x:n} + \gamma \cdot S \cdot ä_{x:n}
+\end{equation}
+
+\subsubsection{Prämien}
+\begin{itemize}
+\item Einmalprämie $P$ zu Vertragsbeginn, $P_0=P$ und $P_1=P_2=...=0$: $\tensor[_0]{B}{}_x^P = P$
+\item Laufende konstante Prämie $P$ jährlich vorschüssig, $P_0=P_1=...=P_{n-1}=P$, $P_n=0$: $P\cdot ä_{x:n}$ (\textbf{ä und Striche})
+\item Laufende konstante Prämie $P$ vorschüssig für $m<n$ Jahre: $P_0=...=P_{m-1}=P$, $P_m=P_{m+1}=P_n=0: P\cdot ä_{x:m}$ (\textbf{ä und Striche})
+\end{itemize}
+
+\subsubsection{Rekursiver Ansatz Prämienkalkulation}
+Betrachten LV-Vertrag mit Laufzeit $n$ Jahre. Prämien können rekursiv bestimmt werden. Ausgangspunkt ist versicherungsmathematische Bilanzgleichung für alle $m\geq 0$ und $\tensor[_n]{V}{}_x=0$:
+\begin{equation}
+\tensor[_m]{V}{}_x = \tensor[_m]{\hat{L}}{}_x - \tensor[_m]{\hat{P}}{}_x + v \cdot p_{x+m} \cdot \tensor[_{m+1}]{V}{}_x
+\end{equation}
+Wir erhalten Gleichungen für $\tensor[_{n-1}]{V}{}_x$, $\tensor[_{n-2}]{V}{}_x$ bis $ \tensor[_0]{V}{}_x$ \\
+Gesucht ist dann Prämienzahlungsstrom $P$, sodass $\tensor[_0]{V}{}_x - \text{Anfangskapital} =0$ (Bsp in Skript)\\
+
+\large \textbf{Überschussbeteiligung}
+\normalsize 
+\subsubsection{Rechtliche Grundlagen}
+Bei Kalkulation von Beiträgen und Leistungen vorsichtige Herangehensweise, daher idR Überschüsse.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
