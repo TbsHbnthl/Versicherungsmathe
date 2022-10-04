@@ -23,24 +23,40 @@
 \contentsline {chapter}{\numberline {2}Schadenversicheungsmathematik}{11}{chapter.2}%
 \contentsline {subsubsection}{Notation}{11}{subsubsection*.24}%
 \contentsline {subsubsection}{Schadenkennzahlen}{11}{subsubsection*.25}%
-\contentsline {subsubsection}{Grundlagen der Tarifierung}{12}{subsubsection*.26}%
-\contentsline {subsubsection}{Tarifierungsverfahren}{12}{subsubsection*.27}%
-\contentsline {subsubsection}{Auswahl der Tarifmerkmale}{14}{subsubsection*.28}%
-\contentsline {subsubsection}{Abwicklungsmuster}{15}{subsubsection*.30}%
-\contentsline {subsubsection}{Basisverfahren der Schadenreservierung}{16}{subsubsection*.31}%
-\contentsline {subsubsection}{Erweiterung der Basisverfahren}{19}{subsubsection*.34}%
-\contentsline {chapter}{\numberline {3}Personenversicherungsmathematik}{20}{chapter.3}%
-\contentsline {subsubsection}{Modell}{21}{subsubsection*.36}%
-\contentsline {chapter}{\numberline {4}Lebensversicherungsmathematik}{22}{chapter.4}%
-\contentsline {subsubsection}{Rechtliche Grundlagen}{22}{subsubsection*.37}%
-\contentsline {subsubsection}{Zustandsmodelle}{22}{subsubsection*.38}%
-\contentsline {subsubsection}{Sterbetafeln}{23}{subsubsection*.41}%
-\contentsline {subsection}{\numberline {4.0.1}Rechnugszins}{23}{subsection.4.0.1}%
-\contentsline {subsubsection}{Kosten}{24}{subsubsection*.43}%
-\contentsline {subsubsection}{Lebensversicherungsprodukte (Auswahl)}{24}{subsubsection*.44}%
-\contentsline {subsubsection}{Wiederholung}{24}{subsubsection*.45}%
-\contentsline {subsubsection}{Standardformeln und Bezeichnungen}{25}{subsubsection*.46}%
-\contentsline {subsubsection}{Umgang mit Kosten}{25}{subsubsection*.47}%
-\contentsline {subsubsection}{Prämien}{25}{subsubsection*.48}%
-\contentsline {subsubsection}{Rekursiver Ansatz Prämienkalkulation}{26}{subsubsection*.49}%
-\contentsline {subsubsection}{Rechtliche Grundlagen}{26}{subsubsection*.50}%
+\contentsline {subsubsection}{Gütekriterien Exposuremaß}{12}{subsubsection*.26}%
+\contentsline {subsubsection}{Datentypen}{12}{subsubsection*.27}%
+\contentsline {subsubsection}{Grundlagen der Tarifierung}{12}{subsubsection*.28}%
+\contentsline {subsubsection}{Tarifierungsverfahren}{13}{subsubsection*.30}%
+\contentsline {subsubsection}{Auswahl der Tarifmerkmale}{15}{subsubsection*.31}%
+\contentsline {subsubsection}{Abwicklungsmuster}{16}{subsubsection*.33}%
+\contentsline {subsubsection}{Basisverfahren der Schadenreservierung}{17}{subsubsection*.34}%
+\contentsline {subsubsection}{Erweiterung der Basisverfahren}{20}{subsubsection*.37}%
+\contentsline {chapter}{\numberline {3}Personenversicherungsmathematik}{21}{chapter.3}%
+\contentsline {subsubsection}{Modell}{22}{subsubsection*.39}%
+\contentsline {subsubsection}{Typische Rechnungsgrundlagen}{22}{subsubsection*.40}%
+\contentsline {subsubsection}{Risikomerkmale von Ausscheidewahrscheinlichkeiten}{22}{subsubsection*.41}%
+\contentsline {subsubsection}{Kosten}{23}{subsubsection*.42}%
+\contentsline {subsubsection}{Erfüllungsbetrag}{23}{subsubsection*.43}%
+\contentsline {subsubsection}{Leistungsbarwert}{23}{subsubsection*.44}%
+\contentsline {subsubsection}{Prämienbarwerte}{23}{subsubsection*.45}%
+\contentsline {subsubsection}{Reserven}{24}{subsubsection*.46}%
+\contentsline {subsubsection}{Versicherungsmathematische Bilanzgleichung}{24}{subsubsection*.47}%
+\contentsline {subsubsection}{Satz von Cantelli}{24}{subsubsection*.48}%
+\contentsline {chapter}{\numberline {4}Lebensversicherungsmathematik}{25}{chapter.4}%
+\contentsline {subsubsection}{Rechtliche Grundlagen}{25}{subsubsection*.49}%
+\contentsline {subsubsection}{Zustandsmodelle}{25}{subsubsection*.50}%
+\contentsline {subsubsection}{Sterbetafeln}{26}{subsubsection*.53}%
+\contentsline {subsubsection}{Rechnugszins}{26}{subsubsection*.55}%
+\contentsline {subsubsection}{Kosten}{27}{subsubsection*.56}%
+\contentsline {subsubsection}{Lebensversicherungsprodukte (Auswahl)}{27}{subsubsection*.57}%
+\contentsline {subsubsection}{Wiederholung}{27}{subsubsection*.58}%
+\contentsline {subsubsection}{Standardformeln und Bezeichnungen}{28}{subsubsection*.59}%
+\contentsline {subsubsection}{Umgang mit Kosten}{28}{subsubsection*.60}%
+\contentsline {subsubsection}{Prämien}{28}{subsubsection*.61}%
+\contentsline {subsubsection}{Rekursiver Ansatz Prämienkalkulation}{29}{subsubsection*.62}%
+\contentsline {subsubsection}{Rechtliche Grundlagen}{29}{subsubsection*.63}%
+\contentsline {subsubsection}{Kontributionsgleichung}{30}{subsubsection*.65}%
+\contentsline {subsubsection}{Rückstellung zur Beitragsrückerstattung}{30}{subsubsection*.67}%
+\contentsline {subsubsection}{Rechtliche Grundlagen}{31}{subsubsection*.68}%
+\contentsline {subsubsection}{Sicherungsbedarf}{31}{subsubsection*.69}%
+\contentsline {subsubsection}{Anspruchberechtigung}{32}{subsubsection*.70}%

@@ -406,6 +406,16 @@ $Y_i\geq$ kumulierter Gesamtaufwand des $i$-ten Risikos. $S^{ind}=\sum_{i=1}^nY_
 
 
 
+
+
+
+
+
+
+
+
+
+
 \chapter{Schadenversicheungsmathematik}
 
 \subsubsection{Notation}
@@ -442,16 +452,40 @@ Exposuremaß: versicherungstechnische Risiko bzw Schadenbedarf eines Bestandes (
 \item Schadengrad: $SG:=\frac{\text{Schadendurchschnitt}}{\text{durchschn. V-Summe}} = \frac{D}{v_0}$
 \end{itemize}
 
+\subsubsection{Gütekriterien Exposuremaß}
+\begin{itemize}
+\item Proportionalität zum Risiko
+\item Praktikabilität
+\item Zeitstabilität des Maßes
+\end{itemize}
+
+\subsubsection{Datentypen}
+\begin{itemize}
+\item Schadendaten: Zeitpunkt, Art und Ursache, Ort, Höhe der Entschädigung etc...
+\item Bestandsdaten: Versicherungssumme, persönliche Daten etc...
+\end{itemize}
+
 \subsubsection{Grundlagen der Tarifierung}
+\begin{itemize}
+\item Risikomerkmal: statistisch signifikanter Zusammenhang zum Schadenverhalten
+\item Tarifmerkmal: Rahmen der Tarifierung
+\item Risikoklasse: genau die Risiken, die bei sämtlichen Tarifmerkmalen die gleiche Ausprägung haben
+\end{itemize}
+Vorgehen:
 \begin{itemize}
 \item Jedem Risiko wird im Rahmen der Tarifierung zunächst der Vektor der Ausprägung $(a_{i_1,1}, a_{i_2, 2}, ..., a_{i_r, r})$ der ausgewählten Tarifmerkmale $M_1,...,M_r$ zugeordnet. Dieser Vektor legt dann genau ein der $t:= \prod_{k=1}^r n_k=$Anzahl der Tarifzellen verschiedenen Tarifzellen eindeutig fest.
 \item Für jedes $r$-Tupel $(i_1, ..., i_r)$ und damir für jede Tarifzelle ist die Nettorisikoprämie $b_{i_1, ..., i_r}$ zu bestimmen
 \item Tarifmodelle verwenden Schadenbedarfe und für jedes Merkmal $M_k$, $k=1,...,r$ und jede Ausprägung $a_{j,k}$, $j=1,...,n_k$ dieses $k$-ten Merkmals einen der insgesamt $n:= \sum_{k=1}^r n_k$ sogenannten Marginalparameter
 \item Dieses Marginalfaktoren bzw. summanden repräsentieren die verschiedenen Ausprägungen der Merkmale und quantifizieren den mittleren Einfluss der Ausprägung auf die Schadenaufwendungen und sind zu schätzen
 \item $u_{k,j}:=$ Marginalfaktor bzw. summand der $j$-ten Ausprägung des $k$-ten Merkmals
-\item Multiplikatives Modell: $b_{i_1, ..., i_r}:= sb\cdot \sum_{k=1}^r u_{k,i_k}$
+\item Multiplikatives Modell: $b_{i_1, ..., i_r}:= sb\cdot \prod_{k=1}^r u_{k,i_k}$
 \item Additives Modell: $b_{i_1, ..., i_r} := sb + \sum_{k=1}^r u_{k, i_k}$
 \end{itemize}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width = .8\textwidth]{Bilder/Tarifierung2.png}
+\end{figure}
 
 
 
@@ -459,6 +493,7 @@ Exposuremaß: versicherungstechnische Risiko bzw Schadenbedarf eines Bestandes (
 Alles multiplikative Modelle: \\
 Vereinfachte Bezeichnungen: $A:=M_1$, $B:=M_2$ Merkmale mit $p:=n_1$, $q:=n_2$ Merkmalsausprägungen. Es gilt: $t=p\cdot q$ und $n=p+q$. Außerdem: $x_i:=u_{1,i}, i=1, ...,p$ und $y_j:=u_{2,j}, j=1,...,q$. Zusätzlich $s_{i,j}$ Gesamtschaden in Tarifzelle $(i,j)$, $v_{i,j}$ Volumenmaß und $sb_{i,j}=\frac{s_{i,j}}{v_{i,j}}$ Schadenbedarf. \\
 Es ergeben sich die Marginaldurchschnitt: $sb_{i,\circ}:=\frac{s_{i \bullet}}{v_{i\bullet}}$ und $sb_{\circ, j} := \frac{s_{\bullet j}}{v_{\bullet j}}$ und der Schadenbedarf $sb:=\frac{s_{\bullet \bullet}}{v_{\bullet \bullet}}$ \\
+
 Tarifierungsverfahren mit Marginaldurchschnitten:
 \begin{itemize}
 \item heuristischer Ansatz: Marginalfaktoren als normierte Marginaldurchschnitte der Risiken mit den jeweiligen Merkmalsausprägungen definieren:\\
@@ -471,17 +506,21 @@ Tarifierungsverfahren von Bailey $\&$ Simon:
 \begin{itemize}
 \item Ansatz orientiert sich an der Abstandsfunktion des $\chi^2$-Tests
 \item Versucht die Marginalfaktoren $x_i$, $y_j$ so zu wählen, dass die Summe der (gewichteten) quadratischen Abstände zwischen den beobachteten Gesamtschäden $s_{ij}$ und den kumulierten Nettorisikoprämien $v_{i,j}\cdot b_{i,j} = v_{i,j}\cdot sb \cdot x_i \cdot y_j$ über alle Zellen minimiert wird.
-\item Lösungen ergeben sich nach Nullsetzen der partiellen Ableitungen durch "p+q nichtlinearen Bestimmungsgleichungen" (nicht explizit lösbar, aber lösbar mit Fixpunktiteration)
-\item Mit den Grenzwerten der Iteration werden die Marginalfaktoren $x_i^{BS}$ und $y_j^{BS}$ gegeben (nicht eindeutig bestimmt)
+\item Lösungen ergeben sich - nach Nullsetzen der partiellen Ableitungen - durch "p+q nichtlinearen Bestimmungsgleichungen" (nicht explizit lösbar, aber lösbar mit Fixpunktiteration)
+\item Grenzwerte der Iteration geben die Marginalfaktoren $x_i^{BS}$ und $y_j^{BS}$ (nicht eindeutig bestimmt)
 \item Es folgt: $b_{i,j}^{BS} := sb \cdot x_i^{BS} \cdot y_j^{BS}$
 \item Verfahren reagiert empfindlich auf Ausreißer und überschätzt beobachteten Gesamtschaden
 \end{itemize}
 Marginalsummenverfahren
 \begin{itemize}
 \item Ansatz: Für jede Ausprägung eines der beiden Merkmale sollen die kumulierten Nettorisikoprämien mit den kumulierten Gesamtschäden übereinstimmen.
-\item Grundlage zur Bestimmung der Marginalfaktoren sind Marginalsummengleichungen (\textbf{AUFSCHREIBEN??})
+\item Grundlage zur Bestimmung der Marginalfaktoren sind Marginalsummengleichungen 
 \item Marginalsummengleichungen ergeben nichtlineares Gleichungssystem mit $p+q$ Gleichungen und Unbekannten
-\item Lösen ebenfalls mit Fixpunktiteration. 
+\item Lösen ebenfalls mit Fixpunktiteration:
+\begin{align}
+x_i = \frac{s_{i\bullet }}{sb \cdot \sum_{j=1}^q v_{i,j} \cdot y_j} \\
+x_i = \frac{s_{i \bullet}}{sb \cdot \sum_{j=1}^q v_{i,j} \cdot x_i}
+\end{align}
 \item Bei Konvergenz ergeben sich die Grenzwerte als Marginalfaktoren $x_i^{MS}$ und $y_j^{MS}$
 \end{itemize}
 
@@ -515,6 +554,11 @@ Marginalsummenverfahren
 
 \subsubsection{Abwicklungsmuster}
 
+Abwicklungsmuster sind die Basis der Modellbildung für zahlreiche
+Methoden der Schadenreservierung. Sie unterstellen für ausgewählte zentrale Kennzahlen der Schadenabwicklung bestimmte Systematiken und erklären
+die Abweichungen von diesen systematischen Größen (Erwartungswerten) als
+zufällige und unsystematische Schwankungen
+
 1. für Anteile $\vartheta$
 \begin{itemize}
 \item Für jedes Anfalljahr $i$ wird der erwartete Zuwachs im $k$-ten Abwicklungsjahr im Verhältnis zum erwarteten Endschadenstand definiert: $\vartheta_k = \frac{E[Z_{i,k}]}{E[S_{i,n}]}$, $i,k=0,...,n$ (Anteile unabhängig von Anfalljahr)
@@ -530,6 +574,7 @@ Marginalsummenverfahren
 3. Für Faktoren $\varphi$
 \begin{itemize}
 \item Für jedes Anfalljahr wird der erwartete Schadenstand im $k$-ten Abwicklungsjahr im Verhältnis zum erwarteten Schadenstand im $(k-1)$-ten Abwicklungsjahr definiert: $\varphi_k = \frac{S[S_{i,k}]}{E[S_{i,k-1}]}$, $i,k=0,...,n$
+\item $\hat{\gamma}_k = \prod_{l=k+1}^n \frac{1}{\hat{\varphi}_l}$
 \item Bei Schadenanzahl bzw. -zahlungen gilt: $\varphi_k >1$
 \end{itemize}
 4. Für Schadenquotenzuwächse
@@ -585,7 +630,7 @@ Additives Verfahren/ Incremental-Loss-Ratio-Verfahren
 \begin{itemize}
 \item Basiert auf Annahme, dass es Volumenmaße $\pi_0, ..., \pi_n$ für die Anfalljahre $i=0,...,n$ gibt.
 \item Außerdem Abwicklungsmuster für die erwarteten (Schaden-)Quoten-Zuwächse $\frac{E[Z_{i,k}]}{\pi_i}$, sodass es Parameter $\zeta_0,...,\zeta_n$ gibt mit $\zeta_k=\frac{E[Z_{i,k}]}{\pi_i}$
-\item Schätzer für relative Zuwächste werden additive Schadenquotenzuwächse verwendet:
+\item Schätzer für relative Zuwächse werden additive Schadenquotenzuwächse verwendet:
 \begin{equation}
 \zeta_k^{AD} := \frac{\sum_{j=0}^{n-k} Z_{j,k}}{\sum_{j=0}^{n-k} \pi_j} = \sum_{j=0}^{n-k} \frac{\pi_j}{\sum_{h=0}^{n-k} \pi_h} \cdot \frac{Z_{j,k}}{\pi_j}
 \end{equation}
@@ -631,6 +676,13 @@ Separationsverfahren bietet Möglichkeit, Kalendereffekte zu berücksichtigen un
 
 3. Nachlauf\\
 Annahme: Schäden innerhalb von $n+1$ Jahren vollständig abgewickelt. In Ausnahmefällen noch nach dem $n$-ten Jahr Änderungen in Schadenständen -> "Nachlauf" 
+
+
+
+
+
+
+
 
 
 
@@ -824,7 +876,7 @@ Unterscheidung: \\
 \end{figure}
 Außerdem stellt die DAV Invaliditätswahrscheinlchkeiten zur Verfügung. Das enthält Wahrscheinlichkeiten zur Sterblichkeit von Invaliden sowie Reaktivierung. Ebenfalls 1. und 2. Ordnung
 
-\subsection{Rechnugszins}
+\subsubsection{Rechnugszins}
 Für Rechnungszins der Prämienkalkulation:
 \begin{itemize}
 \item Einschränkung der Vorsichtsprinzip
@@ -917,7 +969,98 @@ Gesucht ist dann Prämienzahlungsstrom $P$, sodass $\tensor[_0]{V}{}_x - \text{A
 \normalsize 
 \subsubsection{Rechtliche Grundlagen}
 Bei Kalkulation von Beiträgen und Leistungen vorsichtige Herangehensweise, daher idR Überschüsse.
+\begin{itemize}
+\item Versicherungsvertragsgesetz (§153 (1) VVG)
+\begin{itemize}
+\item Beteiligung der VN am Überschuss und Bewertungsreserven
+\item Ausnahme: Beteiligung ausgeschlossen
+\end{itemize}
+\item Versicherungsaufsichtsgesetz (§139 (1) VAG)
+\begin{itemize}
+\item Direkte Zuteilung der Überschüsse oder
+\item Zuführung zur Rückstellung für Beitragsrückerstattung (RfB)
+\end{itemize}
+\end{itemize}
+Regelungen, die angemessen Beteiligung der VN am Überschuss sicherstellen (Mindestzuführungsverordnung): Überschüssen werden größtenteils an VN zurückgegeben, Verluste tragen zu großen Teilen die Eigentümer, Asymmetrie im Geschäftsmodell der dt. Lebensversicherung
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width = .8\textwidth]{Bilder/Überschuss.png}
+\end{figure}
+
+\subsubsection{Kontributionsgleichung}
+Ermitteln von Rohüberschuss kann pro Vertrag mit Kontributionsgleichung \\
+Wir betrachten: LV-Vertrag nach $m$ Jahren, Prämienzahlung $P$, Erlebensfallleistung $R$ vorschüssig, Kosten $K$, Todesfallleistung $T$ nachschüssig, tatsächlicher Zins: $\widetilde{i}$, tatsächliche Sterberate $\widetilde{q}$, tatsächliche Kosten $\widetilde{K}$
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width = .8\textwidth]{Bilder/Kontributionsgleichung.png}
+\end{figure}
+
+Mit kalkulatorischen Größen (Mit tatsächlichen analog): \\
+Einnahmen: $E=(\tensor[_m]{V}{}_x + P) \cdot (1+i)$\\
+Ausgaben: $A=q_{x+m} \cdot T + (R+K) \cdot (1+i) + (1-q_{x+m})\cdot \tensor[_{m+1}]{V}{}_x$\\
+Rohüberschuss im $(m+1)$-ten Jahr:
+\begin{align}
+=(\tensor[_m]{V}{}_x + P - R - \widetilde{K}) \cdot (\widetilde{i}-i) + (T -\tensor[_{m+1}]{V}{}_x) \cdot (q_{x+m} - \widetilde{q}_{x+m})+(K - \widetilde{K} ) \cdot (1+i) \\ = \text{Zinsergebnis + Risikoergebnis + Kostenergebnis}
+\end{align}
+
+
+\subsubsection{Rückstellung zur Beitragsrückerstattung}
+Die Rückstellung für Beitragsrückerstattung (RfB) ist Besonderheit der dt LV:
+\begin{itemize}
+\item Zeitliche Trennung des Aufwands für Überschussbeteiligung und der zugehörigen Auszahlung: (Vorstand, Aufsichtsrat und Aktuar beschließen Überschussdeklaration)
+\item Ziel: Deklaration einer relativ stabilen Überschussbeteiligung
+\item Drei Komponenten der RfB: gebundene RfB, Schlussüberschussanteilfonds (SÜA-Fonds), freie RfB
+\item Rechtliche Grundlage: Versicherungsaufsichtsgesetz §140 VAG
+\item Für überschussberechtigte Verträge gelten folgende Untergrenzen:
+\begin{itemize}
+\item 90\% der anzurechn. Kapitalerträge (Abzüglich Zinsen)
+\item 90\% des Risikoergebnis
+\item 50\% des übrigen Ergebnis
+\end{itemize}
+\item Anmerkungen:
+\begin{itemize}
+\item Übriges Ergebnis umfasst alle Ergebnisquellen außer Risiko und Kapitalanlage
+\item Negative Kapitalanlageergebnisse können verrechnet werden
+\item Negatives Risikoergebnis und übriges Ergebnis werden genullt
+\end{itemize}
+\item Mindestzuführung kann mit Zustimmung der BaFin reduziert werden, um:
+\begin{itemize}
+\item den Solvabilitätsbedarf für die überschussberechtigten Verträge des Gesamtbestands
+\item unvorhersehbare Verluste aus Kapitalanlage-, Risiko- oder übrigen Ergebnis
+\item den Erhöhungsbedarf in der Deckungsrückstellung
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Rechtliche Grundlagen}
+Durch Bilanzierung von Kapitalanlagen nach Niederwertprinzip entstehen Bewertungsreserven:
+\begin{itemize}
+\item Versicherungsvertragsgesetz (§153 (3) VVG)
+\begin{itemize}
+\item Bewertungsreserven jährlich neu ermitteln
+\item nach verursachungsorientiertem Verfahren zuordnen
+\item mind. hälftige Zuteilung bei Vertragsende bzw bei Renten: nach Ansparphase
+\end{itemize}
+\item Versicherungsaufsichtsgesetz: best festverzinslichen Anlagen und Zinsabsicherungsgeschäften: Nur Teil über Sicherungsbedarf relevant
+\end{itemize}
+Beteiligung an Bewertungsreserven:
+\begin{itemize}
+\item Erweiterung der klassischen Zinsgewinnbeteiligung an noch nicht realisierten Erträgen (aber: Einbeziehung der stillen lasten unzulässig)
+\item Unterscheidung der Bewertungsreserven: aus festverzinslichen Kapitalanlagen und andere Kapitalanlagen (z.B. Aktien, Immobilien)
+\end{itemize}
+
+\subsubsection{Sicherungsbedarf}
+Beteiligung an den Bewertungsreserven aus festverzinslichen Wertpapieren nur, wenn Sicherungsbedarf überschritten\\
+Berechnung Sicherungsbedarf: Differenz aus Deckungsrückstellung mit "Bezugszins" und Deckungsrückstellung mit Rechnungszins
+
+\subsubsection{Anspruchberechtigung}
+Beteiligung an den Bewertungsreserven nur für anspruchsberechtigte Vertäge
+\begin{itemize}
+\item anspruchberechtigt: Kapitalbildende klassische Lebens- und Rentenversicherungen
+\item nicht anspruchberechtigt: Fondsgebundene Versicherungen und Versicherungen mit Deckungsrückstellungen, die lediglich zur Glättung der Risikoverlaufs bei konstanten Prämien dienen
+\end{itemize}
 
 
 
