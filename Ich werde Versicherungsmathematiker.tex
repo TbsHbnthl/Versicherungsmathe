@@ -42,6 +42,7 @@
 \usepackage{upgreek}
 \usepackage{dsfont}
 \usepackage{tensor}
+\usepackage{amsbsy}
 
 
 \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
@@ -158,6 +159,7 @@
 	\item Barwert aller Leistungen: $L=\sum_{t=0}^{\bar{n}}D(t)\cdot L_t$
 	\item Barwert aller Prämien: $P=\sum_{t=0}^{\bar{n}}D(t)\cdot P_t$
 	\item Barwert aller Kosten: $K=\sum_{t=0}^{\bar{n}}D(t)\cdot K_t$
+	\item Sicherheitszuschlag: Eintrittswahrscheinlichkeit erhöhen, Diskont verringern
 \end{itemize}
 
 \subsubsection{Äquivalenzprinzip}
@@ -235,14 +237,28 @@
 	\item Nettorisikoprinzip: $H(X)=E(X)$
 	\item Erwartungswertprinzip: $H(X)=E(X)+\delta \cdot E(X) = (1+\delta) \cdot E(X)$
 	\item Varianzprinzip: $H(X)=E(X) + \delta \cdot Var(X)$
-	\item Standardabweichungsprinzip: $H(X)=E(X) + \delta \cdot \sqrt{Var(X)} = E(X) + \delta \cdot \sigma(X)$
-	\item Exponentialprinzip: $H(X) = \frac{1}{a} \cdot ln(M_X(a)) = \frac{1}{a}\cdot ln(E[e^{aX}])$ mit $a>0$, Monumenterzeugender Funktion $M_X$, entspricht näherungsweise Varianzprinzip mit $\delta = \frac{a}{2}$
+	\item Standardabweichungsprinzip: $H(X)=E(X) + \delta \cdot \sqrt{Var(X)} = E(X) + \delta \cdot \sigma(X)$ (anders als andere nicht additiv)
+	\item Exponentialprinzip: $H(X) = \frac{1}{a} \cdot ln(M_X(a)) = \frac{1}{a}\cdot ln(E[e^{aX}])$ mit $a>0$, Monumenterzeugender Funktion $M_X$, entspricht näherungsweise Varianzprinzip mit $\delta = \frac{a}{2}$ und ist ein Spezialfall des Nutzenprinzips
+	\item Es gilt: $\Gamma(1,\lambda) = Exp(\lambda)$ und $X_i \sim \Gamma(a_i,\lambda), \ i=1,...,n$ unabhängig \\ $\Rightarrow \sum_{i=1}^n X_i \sim \Gamma (\sum_{i=1}^n a_i, \lambda)$
 \end{itemize}
 
+\subsubsection{Nettorisikoprämie berechnen}
+\begin{flalign}
+	E(P) = \sum_{t=0}^n w_t \cdot D(t) \cdot P_t \\
+	E(L) = \sum_{t=0}^n q_t \cdot D(t) \cdot L_t \\
+	E(P)=E(L)
+\end{flalign}
+$w_t, q_t$ sind die Wahrscheinlichkeiten, einer positiven Prämien- bzw. Leistungszahlung.
+
+
 \begin{defn}
-	(Ungleichung von Centelli)
-	$P(X>E(X)+c) \leq \frac{Var(X)}{c^2+Var(X)}$ \\
-	Hinweis: SZ wird hier stark überschätzt.
+	(Ungleichung von Cantelli)
+	\begin{align}
+		P(X>E(X)+c) \leq \frac{Var(X)}{c^2+Var(X)} \\
+		\text{Hinweis: SZ wird hier stark überschätzt.} \\
+		c \leq \sqrt{\frac{1 - \epsilon}{\epsilon}} \cdot \sqrt{Var(X)}
+	\end{align}
+
 \end{defn}
 
 \subsubsection{Beispiele Risikoma{\ss}e}
@@ -297,7 +313,10 @@ $Y_i\geq$ kumulierter Gesamtaufwand des $i$-ten Risikos. $S^{ind}=\sum_{i=1}^nY_
 
 \subsubsection{Gegenüberstellung individuelles und kollektives Modell}
 \begin{itemize}
-	\item dieselbe Gesamtsumme $S^{int}=S^{koll}$
+	\item dieselbe Gesamtsumme $S^{ind}=S^{koll}$
+	\item ind: $n =$ Anzahl individuell betrachteter Risiken (deterministisch), koll: $N =$ Anzahl der Finanzaufwände, Zufallsvariable
+	\item ind: Gesamtaufwand ist endliche Summe, koll: Zufallssumme
+	\item ind: $Y_i =$ kumulierter Finanzaufwand eines Risikos, koll: $X_j =$ Höhe der einzelnen Finanzaufwände
 	\item im individuellen Modell Aggregation der einzelnen Aufwände pro Risiko und Zeitraum erforderlich
 	\item kollektives Modell: Betrachtung einzelner Ereignisse ohne Erfassung, welches Risiko den Aufwand verursacht
 	\item i.A. bietet das KM eine bessere Basis für die Schätzung der Verteilung
@@ -315,6 +334,7 @@ $Y_i\geq$ kumulierter Gesamtaufwand des $i$-ten Risikos. $S^{ind}=\sum_{i=1}^nY_
  	\item Modellannahmen nicht immer sachgerecht
  	\item Markov-Eigenschaft kritisch: Relevant, ob \textit{aktiv} $\rightarrow$ \textit{Rente} oder \textit{invalide} $\rightarrow$ \textit{Rente}
  	\item z.T. sehr viele Zustände erforderlich (z.B. Abhängigkeit der Leistungshöhe von Anzahl Dienstjahren, bei Invalidität der Zeitpunkt des Eintritts in den Invalidenstatus)
+ 	\item Markov in der Praxis begrenzt möglich, denn: Annahme der Markov-Eigenschaft oft kritisch, sehr viele Zustände zur Modellierung nötig, Erreichen des Gleichgewichtszustands fraglich
  \end{itemize}
 
 \subsubsection{Risikoteilung}
@@ -791,32 +811,111 @@ Annahme: Schäden innerhalb von $n+1$ Jahren vollständig abgewickelt. In Ausnah
 	\item Spar- und Risikoprämie: $\tensor[_{m}]{V}{}_x + \tensor[_{m}]{\hat{P}}{}_x = \tensor[_{m}]{P}{}_x^S + \tensor[_{m}]{P}{}_x^R$
 \end{itemize}
 
-\subsubsection{Satz von Cantelli}
+\newpage
+\subsubsection{Bevölkerungsmodell - Ausscheidewahrscheinlichkeiten q und Verbleibewahrscheinlichkeiten p}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.75\textwidth]{Bilder/Bevoelkerungsmodell.png}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.75\textwidth]{Bilder/Bevoelkerungsmodell2.png}
+\end{figure}
+
+
+\subsubsection{Leistungsbarwerte}
+
 \begin{itemize}
-	\item braucht man das?
+	\item Barwert einer Verpflichtung ggü. $x$-jähriger Person: $\tensor[_{0}]{B}{}_x^L=\sum_{k\geq 0}v^k \cdot \tensor[_{k}]{p}{}_x \cdot \tensor[_{k}]{\hat{L}}{}_x$
+	\item $\tensor[_{k}]{\hat{L}}{}_x$: EW der gesamten Leistung, die durch Erreichen des Altersintervalls $(x+k, \ x+k+1]$ ausgelöst wird.
 \end{itemize}
 
+\subsubsection{Barwert einer lebenslänglich laufenden Rente, jährlich $t$ Raten mit Betrag $1/t$ vorschüssig zahlbar}
+\begin{equation}
+	\tensor[^{(t)}]{\text{\textit{ä}}}{}_x^r=\sum_{k \geq 0} v^k \cdot \tensor[_{k}]{p}{}_x^r \cdot  \tensor[_{k}^{(t)}]{\hat{L}}{}_x^r
+\end{equation}
+\begin{equation}
+	\tensor[_{k}^{(t)}]{\hat{L}}{}_x^r \text{: Barwert der Rentenzahlung des Alters } (x+k, x+k-1] \text{ zum Beginn des Jahres}
+\end{equation}
 
+\subsubsection{Barwert einer über die Aktivenzeit laufenden Rente, Jahresbeitrag 1, vorschüssig zahlbar in $t$ Raten p.a.}
+\begin{equation}
+	\tensor[^{(t)}]{\text{\textit{ä}}}{}_x^a=\sum_{k = 0}^n v^k \cdot \tensor[_{k}]{p}{}_x^a \cdot  \tensor[_{k}^{(t)}]{\hat{L}}{}_x^a
+\end{equation}
 
+ \subsubsection{Invarianzsatz}
+ \begin{itemize}
+ 	\item  Auf der Basis des Axiomensystems hängen Anwartschaftsbarwerte von Renten mit gleichbleibender Rentenhöhe nicht von der Zahlungsweise ab, wenn sowohl der Zeitpunkt des die Rente auslösenden Ereignisses als auch der Zeitpunkt des die Rente beendigenden Ereignisses innerhalb eines Jahres gleichverteilt sind.
+ 	\item Anwartschaft eines Aktiven auf lebenslängliche Invalidenrente: $\tensor[^{(t)}]{\text{\textit{ä}}}{}_x^{ai} = \text{\textit{ä}}_x^{ai}$
+ \end{itemize}
 
+\subsubsection{Barwert der Anwartschaft eines Aktiven des Alters $x$ auf lebenslänglich laufende Invalidenrente, Jahresbetrag 1, vorschüssig in $t$ Raten p.a. zahlbar}
+\begin{equation}
+	\tensor[^{(t)}]{\text{\textit{ä}}}{}_x^{ai}=\text{\textit{ä}}_x^{ai}=\sum_{k = 0}^n v^k \cdot \tensor[_{k}]{p}{}_x^a \cdot  \tensor[_{k}^{(t)}]{\hat{L}}{}_x^{ai}
+\end{equation}
 
+\subsubsection{Barwert der Anwartschaft eines Aktiven des Alters $x$ auf lebenslänglich laufende Altersrente, Jahresbetrag 1, vorschüssig zahlbar in $t$ Raten p.a.}
+\begin{equation}
+	\tensor[^{(t)}]{\text{\textit{ä}}}{}_x^{aA}=\sum_{k = 0}^n v^k \cdot \tensor[_{k}]{p}{}_x^a \cdot  \tensor[_{k}^{(t)}]{\hat{L}}{}_x^{aA} = v^n \cdot \tensor[_{n}]{p}{}_x^a \cdot \tensor[^{(t)}]{\text{\textit{ä}}}{}_z^{r}
+\end{equation}
 
+\subsubsection{Barwert der Anwartschaft eines Aktiven des Alters $x$ auf lebenslänglich laufende Alters- und Invalidenrente, Jahresbetrag 1, vorschüssig zahlbar in $t$ Raten p.a.}
+\begin{equation}
+	\tensor[^{(t)}]{\text{\textit{ä}}}{}_x^{aiA} = \tensor[^{(t)}]{\text{\textit{ä}}}{}_x^{aA} +\tensor[^{(t)}]{\text{\textit{ä}}}{}_x^{ai}
+\end{equation}
 
+\subsubsection{Barwert der Anwartschaft eines Rentners des Alters $x$ auf lebenslänglich laufende Ehegattenrente, Jahresbetrag 1, vorschüssig in $t$ Raten p.a. zahlbar}
+\begin{equation}
+	\text{Kollektivmethode: } \tensor[^{(t)}]{\text{\textit{ä}}}{}_x^{rw}=\text{\textit{ä}}_x^{rw}=\sum_{k \geq 0} v^k \cdot \tensor[_{k}]{p}{}_x^r \cdot  \tensor[_{k}]{\hat{L}}{}_x^{rw}
+\end{equation}
 
+\subsubsection{Barwert der Anwartschaft eines Rentners des Alters $x$ auf lebenslänglich laufende Ehegattenrente, Jahresbetrag 1 bei Tod als Aktiver, vorschüssig in $t$ Raten p.a. zahlbar}
+\begin{equation}
+	\text{Kollektivmethode: } \tensor[^{(t)}]{\check{\text{\textit{ä}}}}{}_x^{aaw}=\check{\text{\textit{ä}}}_x^{aaw}=\sum_{k = 0}^n v^k \cdot \tensor[_{k}]{p}{}_x^a \cdot  \tensor[_{k}]{\check{L}}{}_x^{aaw}
+\end{equation}
 
+\subsubsection{Barwert der Anwartschaft eines Aktiven des Alters $x$ auf lebenslänglich laufende Ehegattenrente, Jahresbetrag 1 bei Tod nach Erreichen der Altersgrenze als Aktiver, vorschüssig in $t$ Raten p.a. zahlbar}
+\begin{equation}
+	\text{Kollektivmethode: } \tensor[^{(t)}]{\text{\textit{ä}}}{}_x^{aAw}=\text{\textit{ä}}_x^{aAw}=\sum_{k = 0}^n v^k \cdot \tensor[_{k}]{p}{}_x^a \cdot \tensor[_{k}]{\hat{L}}{}_x^{aAw}
+\end{equation}
 
+\subsubsection{Barwert der Anwartschaft eines Aktiven des Alters $x$ auf lebenslänglich laufende Ehegattenrente, Jahresbetrag 1 bei Tod als Invalider, vorschüssig in $t$ Raten p.a. zahlbar}
+\begin{equation}
+	\text{Kollektivmethode: } \tensor[^{(t)}]{\text{\textit{ä}}}{}_x^{aiw}=\text{\textit{ä}}_x^{aiw}=\sum_{k = 0}^n v^k \cdot \tensor[_{k}]{p}{}_x^a \cdot \tensor[_{k}]{\hat{L}}{}_x^{aiw}
+\end{equation}
 
+\subsubsection{Zuordnung von Leistung auf Alter}
+\begin{itemize}
+	\item Rückrechnungsmethode: Dem Pensionsalter $z$ wird die exakt auf diesen Zeitpunkt ermittelte Leistung zugeordnet. Dem Alter $x<z$ wird die Leistung zugeordnet, die der um $z-x$ geringeren Dienstzeit entspricht.
+	\item Stichtagsmethode: Dem Pensionsalter $z$ wird die exakt auf diesen Zeitpunkt ermittelte Leistung zugeordnet. Dem Alter $x<z$ wird die Leistung zum nächsten Geburtstag zugeordnet.
+\end{itemize}
 
-
-
-
-
-
-
-
-
-
-
+\subsubsection{Steuerliches Teilwertverfahren}
+\begin{itemize}
+	\item \begin{equation}
+		\tensor[_{m}]{V}{}_x = \tensor[_{m}]{B}{}_x^L - P_x \cdot \text{\textit{ä}}_{x+m}^{\ a}
+	\end{equation}
+	\begin{align}
+		\text{  mit  }P_x=\frac{\tensor[_{0}]{B}{}_x^L}{\text{\textit{ä}}_{x}^{a}}
+	\end{align}
+	\item Steuerliche Besonderheiten: 
+		\begin{itemize}
+			\item Mindestalter 23 (ab 2018), 27 (2009-2017), 28 (2001-2008), 30 (vor 2001)
+			\item jährlich vorschüssige konstante Prämie
+			\item 6$\%$ Zins
+		\end{itemize}
+	\item Vorgehen bei Teilwertberechnung:
+		\begin{itemize}
+			\item[1.] Ermittlung des Stichtagalters und des Finanzierungsbeginnalters
+			\item[2.] Bestimmung des altersabhängigen Leistungsvektors (z.B. Rückrechenmethode)
+			\item[3.] Entwicklung der Barwertformeln zum Stichtagsalter zum zum Beginnalter (Beachte Mindestalter)
+			\item[4.] Anwenden der Teilwertformel
+		\end{itemize}
+	\item Möglichkeit zur Bewertung in der Handelsbilanz: modifiziertes Teilwertverfahren nach Engbroks
+	\item Bewertung nach IFRS (auch dt. Handelsbilanz): Projected Unit Credit Methode
+\end{itemize}
 
 
 
@@ -1061,6 +1160,166 @@ Beteiligung an den Bewertungsreserven nur für anspruchsberechtigte Vertäge
 \item anspruchberechtigt: Kapitalbildende klassische Lebens- und Rentenversicherungen
 \item nicht anspruchberechtigt: Fondsgebundene Versicherungen und Versicherungen mit Deckungsrückstellungen, die lediglich zur Glättung der Risikoverlaufs bei konstanten Prämien dienen
 \end{itemize}
+
+\chapter{Krankenversicherung}
+
+\subsubsection{Allgemeines}
+\begin{itemize}
+	\item duales System (PKV, GKV)
+	\item versicherungsfreie Personen: Gehalt oberhalb der Grenze, beihilfeberechtigte Personen, Personen mit freier Heilfürsorge
+	\item VVG: Krankheitskostenversicherung für ambulante und stationäre Behandlung, max. 5000€ Selbstbehalt
+	\item Unterscheidung substituive (ersetzt ganz oder teilweise den Schutz des gesetzlichen Systems, muss nach Art der Lebensversicherung betrieben) und nicht substituive Krankenversicherung (kann nach Art der Lebensversicherung betrieben werden)
+	\item Wechsel in der PKV: 
+		\begin{itemize}
+		\item keine Übertragung der Altersrückstellung für nicht-substituive KV, subst. KV mit Beginn vor 01.01.2009 und Krankentagegeldversicherung
+		\item Übertragung für subst. KV mit Beginn nach 01.01.2009 (Wert: gleicher, der sich bei Basistarif ergeben hätte)
+		\end{itemize}
+\end{itemize}
+
+\subsubsection{Zustandsmodell KV - Teil 1}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width = .8\textwidth]{Bilder/ZustandModellKV.png}
+\end{figure}
+
+\subsubsection{Rechnungsgrundlagen PKV}
+\begin{itemize}
+	\item Rechnungszins: Obergrenze 3,5$\%$, nicht notwendigerweise für ganze Laufzeit garantiert
+	\item Ausschreideordnung: bei Tod und Storno. Für $x$-jährige Person $q^{Tod}_x \eqqcolon q_x$, $q_x^{Storno} \eqqcolon w_x$, Verbleibewahrscheinlichkeit $p_x=1-q_x-w_x$
+	\item Übertrittswahrscheinlichkeiten
+	\item Sonstige Zuschläge
+	\item Praxis: 
+		\begin{itemize}
+			\item Doku jedes Tarifs in technischen Berechnungsgrundlagen
+			\item Rechnungszins orientiert sich am AUZ (Aktuarieller Unternehmenszins)
+			\item Ausscheideordnung: üblicherweise Verbandswerte wegen zu kleiner Bestände, unternehmenseigene Werte zulässig
+		\end{itemize}
+\end{itemize}
+
+\subsubsection{Sterbewahrscheinlichkeit Herleitung}
+\begin{itemize}
+	\item[$\rightarrow$] Praxis: jährlich neue Sterbetafel veröffentlicht
+	\item[1.] Schätzung der rohen Sterbewahrscheinlichkeiten
+	\item[2.] Ausgleich der rohen Sterbewahrscheinlichkeiten
+	\item[3.] Berücksichtigung Sicherheitsabschlag
+	\item[4.] Bestimmung Trend, Projektion um 7 Jahre
+	\item[5.] Abgleich mit Vorjahreswerten 
+\end{itemize}
+
+\subsubsection{Kopfschäden}
+\begin{itemize}
+	\item erwartete Leistung für eine Person
+	\item Beobachtungszeitraum: 12 Monate
+	\item abhängig von Tarif und Alter
+	\item Notation für $x$-jährige Person: $K_x$
+	\item Besonderheiten:
+		\begin{itemize}
+			\item Wartezeit- und Selektionsersparnisse: Neukunden sind bessere Risiken als gleichaltrige Kunden (Ursachen: gewisse Leistungen erst nach 3 Monaten, Risikoprüfung bei Vertragsabschluss)
+			\item S-Kosten: Leistungsausgaben bedingt durch Schwangerschaft, Geburt und Mutterschutz (Umlage durch allg. Gleichbehandlungsgesetz, geschlechtsunabh. Kalkulation)
+		\end{itemize}
+\end{itemize}
+
+\subsubsection{Rusam-Methode}
+\begin{itemize}
+	\item fixiere Alter $x_0$, bestimme für jedes Alter $k_x \coloneqq \frac{K_x}{K_{x_0}}$
+	\item $k_x$: normierter Kopfschaden zum Alter $x$
+	\item Gesamtheit aller $k_x$ hei{\ss}t Profil
+	\item Grundkopfschaden: $G \coloneqq K_{x_0}} \Rightarrow K_x=k_x \cdot G$
+	\item Zerlegung in Grundkopfschaden und Profil ist Standard bei Bestimmung der Kopfschäden in der PKV
+	\item Vorteile: Profile für mehrere Tarife nutzbar und im Zeitablauf stabil, vereinfachen Kalkulation
+\end{itemize}
+
+\subsubsection{Kosten und Zuschläge}
+\begin{itemize}
+	\item Sicherheitszuschlag verpflichtend, mind. 5$\%$ der Bruttoprämie, nicht in anderen Rechnungsgrundlagen enthalten
+	\item ansetzbare Kosten: Abschlusskosten, Verwaltungskosten, KV-spezifische Zuschläge
+	\item Bei Festlegung zu beachten: Einschränkungen der Höhe bei unmittelbaren Abschlusskosten, nur altersunabhängige absolute Kostenzuschläge erlaubt
+\end{itemize}
+
+\subsubsection{Überprüfung Rechnungsgrundlagen}
+\begin{itemize}
+	\item Voraussetzung für Prämienanpassung: „... nicht nur als vorübergehend anzusehenden Veränderung einer für die Prämienkalkulation ma{\ss}geblichen Rechnungsgrundlage ...“
+	\item ma{\ss}gebliche Rechnungsgrundlagen: Versicherungsleistung (Kopfschaden) und Sterbewahrscheinlichkeiten
+\end{itemize}
+
+\subsubsection{Auslösender Faktor für Schäden}
+\begin{itemize}
+	\item Überprüfung der Rechnungsgrundlage der Kopfschäden durch Vergleich erforderlicher und kalkulatorischer Leistungen mindestens jährlich
+	\item Auslösender Faktor für Versicherungsleistungen (Kopfschäden): $AF_{Schaden} \coloneqq \frac{S^{erf}}{S^{kalk}}$
+	\item Prämien überprüfen, falls $|1-AF_{Schaden}|>10\%$ und Änderung nicht nur vorübergehend
+	\item Bestimmung der erforderlichen Leistungen auf Basis einer Extrapolation der letzten drei Jahre
+	\item Tatsächlicher Grundkopfschaden in einem Jahr ($S$ abgegrenzter Schaden, $n_x$ abgegrenzter mittlerer Bestand, $k_x$ rechn.mä{\ss}iges Profil für Alter $x$:
+		\begin{equation}
+			G= \frac{S}{\sum_x n_x \cdot k_x}
+		\end{equation}
+	\item Extrapolierter Grundkopfschaden um 18 Monate unter Verwendung von $G_t, G_{t-1}, G_{t-2}$:
+	\begin{equation}
+		G^{(ext)}=\frac{3}{2} \cdot (G_t - G_{t-2})+\frac{1}{3} \cdot(G_{t-2}+G_{t-1}+G_t)
+	\end{equation}
+	\item erforderliche Versicherungsleistungen:
+		\begin{equation}
+			S^{erf} \coloneqq \sum_x n_x \cdot G^{(ext)} \cdot k_x^{rech}
+		\end{equation}
+	\item kalkulatorische Versicherungsleistungen:
+		\begin{equation}
+			S^{kalk} \coloneqq \sum_x n_x \cdot G^{(rech)} \cdot k_x^{rech}
+		\end{equation}
+	\item mit: $n_x$ abgegrenzte mittlere Bestandsgrö{\ss}e im Alter $x$ und $G^{(ext)}$ extrapolierter Grundkopfschaden
+	\item Ergebnis: Vergleich der Grundkopfschäden
+\end{itemize}
+
+\subsubsection{Auslösender Faktor für Sterblichkeit}
+\begin{itemize}
+	\item mindestens jährlicher Vergleich von erforderlichen und kalkulatorischen Sterbewahrscheinlichkeiten (Leistungsbarwerte vergleichen)
+	\item auslösender Faktor Sterblichkeit:
+		\begin{equation}
+			AF_{Sterb} \coloneqq max\biggl\{\frac{1}{25} \cdot \sum_{x=21}^{45} \frac{A_x^{(erf)}}{A_x^{(kalk)}}, \frac{1}{25} \cdot \sum_{x=46}^{70} \frac{A_x^{(erf)}}{A_x^{(kalk)}}, \frac{1}{25} \cdot \sum_{x=71}^{95} \frac{A_x^{(erf)}}{A_x^{(kalk)}}\biggr\}
+		\end{equation}
+	\item Überprüfung der Prämien, wenn $|1-AF_{Sterb}|>5\%$
+	\item Bestimmung des Leistungsbarwerts ohne Storno-Whk.
+	\item bei Krankengeld: Betrachtung Alter 21-45 und 46-65
+	\item Leistungsbarwert mit kalkulatorischen Sterbewahrscheinlichkeiten:
+		\begin{equation}
+			A_x^{(kalk)}=\sum_{t\geq 0} v^t \cdot \tensor[_t]{p}{}_x \cdot K_{x+t}
+		\end{equation}
+	\item Leistungsbarwert mit erforderlichen Sterbewahrscheinlichkeiten
+		\begin{equation}
+			A_x^{(erf)}=\sum_{t\geq 0} v^t \cdot \tensor[_t]{p}{}_x^{BaFin} \cdot K_{x+t}
+		\end{equation}
+	\item $q_x^{(BaFin)}$ Sterblichkeit aus aktueller PKV-Sterbetafel
+\end{itemize}
+
+\subsubsection{Zustandsmodell KV - Teil 2}
+\begin{itemize}
+	\item nach $t$-jährigem Verbleib in Hauptgesamtheit: 
+		\begin{equation}
+			\tensor[_t]{\hat{L}}{}_x = K_{x+t}+w_{x+t} \cdot v \cdot \text{\textit{Ü}}_{x+t+1}
+		\end{equation}
+	\item $\text{\textit{Ü}}_{x+t+1}$ ist die Übertragungswertzahlung bei Storno in Vertragsjahr $t+1$, Rechnung mit $\text{\textit{Ü}}_{x}=0$
+	\item Leistungsbarwert \textcolor{red}{mit Übertragungswertzahlung}:
+		\begin{align}
+			A_x \coloneqq \sum_{t=0}^{\omega-x} v^t \cdot \tensor[_t]{p}{}_x \cdot (K_{x+t} \color{red} + w_{x+t}\cdot v \cdot \text{\textit{Ü}}_{x+t+1} \color{black})
+		\end{align}
+\end{itemize}
+
+\subsubsection{Prämienkalkulation}
+Kann man hoffentlich weglassen...
+
+\subsubsection{Äquivalenzgleichung}
+\begin{itemize}
+	\item verallgemeinertes Äquivalenzprinzip (Abschlussalter $x$, jetzt $x+m$)
+		\begin{equation}
+			\tensor[_m]{V}{}_x + B^a \cdot \text{\textit{ä}}^{\ a}_u = A_u^a + \Delta^a \cdot B^a \cdot \text{\textit{ä}}^{\ a}_u + \gamma^a \cdot \text{\textit{ä}}^{\ a}_u
+		\end{equation}
+	\item d.h. Altersrückstellungen zzgl. erw. Barwert aller zukünftiger Prämien finanziert Leistungsbarwert der Versicherungsleistungen und Kosten
+	\item ohne Kosten: 
+		\begin{equation}
+			\tensor[_m]{V}{}_x^{(netto)} + P^a \cdot \text{\textit{ä}}^{\ a}_u = A_u^a
+		\end{equation}
+\end{itemize}
+
+
+
 
 
 
