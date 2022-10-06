@@ -604,6 +604,24 @@ Erwarteter Schadenquotenzuwachs des $k$-ten Abwicklungsjahrs für das $i$-te Anf
 \item erwartete Endschadenquote: $\frac{E[S_{i,n}]}{\pi_i}$
 \end{itemize}
 
+\subsubsection{GLMs}
+\begin{itemize}
+\item Verallgemeinerte lineare Modelle erweitern den Ansatz der linearen Regression durch Verwendung einer streng monoton wachsenden Transformation $g: \mathbb{R} \rightarrow \mathbb{R}$ -> "Link-Funktion"
+\item transformierter Erwartungswert soll lineare Funktion in $x$ sein:
+\begin{equation}
+g(\mu(x)) = g(E[Y|X=x]) = a_0 + \sum_{i=1}^r a_i \cdot x_i = \eta (x)
+\end{equation}
+\item $\eta(x)$ wird auch linearer Prädiktor genannt
+\item Durch inverse Link-Funktion: $\mu(x) = g^{-1}(\eta(x))$
+\item Zugehöriges GLM lautet:
+\begin{equation}
+Y=g^{-1} \left( a_0 + \sum_{i=1}^r a_i \cdot X_i \right) +\widetilde{\varepsilon}
+\end{equation}
+\item log-lineares Modell: $\mu(x) = e^{a_0 + \sum_{i=1}^r a_i \cdot x_i} = e^{\eta (x)} >0$ 
+\item Beziehung zu Marginalsummenverfahren: Für genau zwei Merkmale und den Ansatz Poisson-verteilter Schadenaufwände überführt den log-link-Ansatz das ursprüngliche Poisson-Modell in das Marginalsummenverfahren 
+\end{itemize}
+
+
 
 
 \subsubsection{Basisverfahren der Schadenreservierung}
@@ -964,6 +982,12 @@ Außerdem keine Differenzierung nach Geschlechtern erlaubt.
 
 \vspace{1cm}
 \subsubsection{Sterbetafeln}
+Es gibt zwei verschiedene Arten: Periodentafel und Generationstafel. \\
+Bei Erlebensfallrisiko mit aufgeschobener Leibrente: Generationentafel. Im Gegensatz zu Periodentafel berücksichtigt die Generationssterbetafel die Sterbewahrscheinlichkeit der jeweiligen Generation des Versicherten -> niedrigere Sterbewahrscheinlichkeit der jüngeren Generation\\
+Unterschied DAV 2004 R Tafel und Destatis: DAV für Einschätzung des Erlebensfallrisikos verwendet (Sicherheitsabschläge enthalten). Destatis enthält keine Sicherheitszu- oder abschläge. Außerdem anderes Kollektiv (Versicherte, Gesamtbevölkerung)
+Todesfallrisiko: Periodentafel nutzen. Stornowahrscheinlichkeiten sind
+erforderlich, wenn bei Storno nicht die Deckungsrückstellung ausbezahlt wird (Cantelli)
+
 In der Lebensversicherung kommen Sterbetafeln der DAV zum Einsatz.\\
 Unterscheidung: \\
 - 1. Ordnung: Werte enthalten Sicherheiten\\
@@ -1031,9 +1055,11 @@ $E(L) = S \cdot \tensor[_{|\omega -x}]{A}{}_x =: S\cdot A_x$
 \item Leibrente:\\
 $E(L) = R + R \cdot \tensor[_1]{E}{}_x + r \cdot \tensor[_2]{E}{}_x + ... =: R \cdot \text{\textit{ä}}_x$
 \item Aufgeschobene Leibrente um $m$ Jahre:\\
-$E(L)= R \cdot \tensor[_m]{E}{}_x + R \cdot \tensor[_{m+1}]{E}{}_x + ... =: R \cdot \tensor[_{m|}]{ä}{}_x$
+$E(L)= R \cdot \tensor[_m]{E}{}_x + R \cdot \tensor[_{m+1}]{E}{}_x + ... =: R \cdot \tensor[_{m|}]{\text{\textit{ä}}}{}_x$ \\
+Erwartungswert des Erfüllungsbetrags: \\
+$\tensor[_0]{B}{}_x^L = R \cdot \sum_m v^m \cdot \tensor[_m]{p}{}_x = R \cdot \tensor[_{m|}]{\text{\textit{ä}}}{}_x$
 \item Temporäre Leibrente mit Dauer von $n$ Jahre: \\
-$E(L) = R + R \cdot \tensor[_1]{E}{}_x + R \cdot \tensor[_2]{E}{}_x + ... + R \cdot \tensor[_{n-1}]{E}{}_x =: R \cdot ä_{x:n} $ \textbf{Hier um letztes n eigentlich zwei Linien, aber wie? Und wie ä ?? Folie 25}
+$E(L) = R + R \cdot \tensor[_1]{E}{}_x + R \cdot \tensor[_2]{E}{}_x + ... + R \cdot \tensor[_{n-1}]{E}{}_x =: R \cdot \text{\textit{ä}}_{x:n} $ \textbf{Hier um letztes n eigentlich zwei Linien, aber wie? Folie 25}
 \end{itemize}
 
 \subsubsection{Umgang mit Kosten}
@@ -1044,23 +1070,46 @@ $E(L) = R + R \cdot \tensor[_1]{E}{}_x + R \cdot \tensor[_2]{E}{}_x + ... + R \c
 \item Inkassokosten: \textcolor{blue}{jährlich vorschüssig $\beta$} des jährlichen Beitrags
 \item Verwaltungskosten: \textcolor{blue}{jährlich vorschüssig $\gamma$} der V-Summe
 \end{itemize}
-Leistungsbarwert der Kosten: (\textbf{Hier auch ä und zwei Striche)}
+Leistungsbarwert der Kosten: (\textbf{zwei Striche)}
 \begin{equation}
-\alpha^Z \cdot n \cdot P + \alpha^\gamma \cdot S \cdot ä_{x:n} + \beta \cdot P \cdot ä_{x:n} + \gamma \cdot S \cdot ä_{x:n}
+\alpha^Z \cdot n \cdot P + \alpha^\gamma \cdot S \cdot \text{\textit{ä}}_{x:n} + \beta \cdot P \cdot \text{\textit{ä}}_{x:n} + \gamma \cdot S \cdot \text{\textit{ä}}_{x:n}
 \end{equation}
 
 \subsubsection{Prämien}
 \begin{itemize}
 \item Einmalprämie $P$ zu Vertragsbeginn, $P_0=P$ und $P_1=P_2=...=0$: $\tensor[_0]{B}{}_x^P = P$
-\item Laufende konstante Prämie $P$ jährlich vorschüssig, $P_0=P_1=...=P_{n-1}=P$, $P_n=0$: $P\cdot ä_{x:n}$ (\textbf{ä und Striche})
-\item Laufende konstante Prämie $P$ vorschüssig für $m<n$ Jahre: $P_0=...=P_{m-1}=P$, $P_m=P_{m+1}=P_n=0: P\cdot ä_{x:m}$ (\textbf{ä und Striche})
+\item Laufende konstante Prämie $P$ jährlich vorschüssig, $P_0=P_1=...=P_{n-1}=P$, $P_n=0$: $P\cdot ä_{x:n}$ (\textbf{Striche})
+\item Laufende konstante Prämie $P$ vorschüssig für $m<n$ Jahre: $P_0=...=P_{m-1}=P$, $P_m=P_{m+1}=P_n=0$: $P\cdot \text{\textit{ä}}_{x:m}$ (\textbf{Striche})
 \end{itemize}
 
-\subsubsection{Rekursiver Ansatz Prämienkalkulation}
-Betrachten LV-Vertrag mit Laufzeit $n$ Jahre. Prämien können rekursiv bestimmt werden. Ausgangspunkt ist versicherungsmathematische Bilanzgleichung für alle $m\geq 0$ und $\tensor[_n]{V}{}_x=0$:
+\subsubsection{Kosten}
+\begin{itemize}
+\item $\alpha^Z$: einmalige Abschlusskosten
+\item $\alpha^Y$: Abschlusskosten während Vertrag
+\item $\beta$: Inkassokosten
+\item $\gamma_1$: Verwaltungkosten bis z.B. Renteneintritt
+\item $\gamma_2$: Verwaltungkosten während z.B. Rente
+\end{itemize}
+
+\subsubsection{Äquivalenzprinzip für einen Vertrag}
+\textbf{Striche um ms}
 \begin{equation}
-\tensor[_m]{V}{}_x = \tensor[_m]{\hat{L}}{}_x - \tensor[_m]{\hat{P}}{}_x + v \cdot p_{x+m} \cdot \tensor[_{m+1}]{V}{}_x
+P \cdot \text{\textit{ä}}_{x:m} = R \cdot \tensor[_{|m}]{\text{\textit{ä}}}{}_x + \alpha^Z \cdot m \cdot P + ((\alpha^\gamma + \gamma_1)\cdot R + \beta \cdot P) \cdot \text{\textit{ä}}_{x:m} + \gamma_2 \cdot R \cdot \tensor[_{|m}]{\text{\textit{ä}}}{}_x
 \end{equation}
+
+\subsubsection{Rekursiver Ansatz Prämienkalkulation}
+Betrachten LV-Vertrag mit Laufzeit $n$ Jahre. Prämien können rekursiv bestimmt werden. Ausgangspunkt ist versicherungsmathematische Bilanzgleichung für alle $m\geq 0$ und $\tensor[_n]{V}{}_x=0$ und Dauer Prämienzahlung $a$:
+\begin{equation}
+\begin{aligned}
+\tensor[_m]{V}{}_x & = \tensor[_m]{\hat{L}}{}_x - \tensor[_m]{\hat{P}}{}_x + v \cdot p_{x+m} \cdot \tensor[_{m+1}]{V}{}_x \\
+& =S \cdot v \cdot q_{x+m} + v\cdot p_{x+m} \cdot \tensor[_{m+1}]{V}{}_x + \gamma \cdot S + \begin{cases}
+	a \cdot \alpha^Z \cdot P + \beta \cdot P - P & \text{für } m=0 \\
+	\beta \cdot P + P & \text{für } 0<m< a \\
+	0 & \text{für } a\leq m < n
+	\end{cases}
+\end{aligned}
+\end{equation}
+
 Wir erhalten Gleichungen für $\tensor[_{n-1}]{V}{}_x$, $\tensor[_{n-2}]{V}{}_x$ bis $ \tensor[_0]{V}{}_x$ \\
 Gesucht ist dann Prämienzahlungsstrom $P$, sodass $\tensor[_0]{V}{}_x - \text{Anfangskapital} =0$ (Bsp in Skript)\\
 
@@ -1132,6 +1181,11 @@ Die Rückstellung für Beitragsrückerstattung (RfB) ist Besonderheit der dt LV:
 \item den Erhöhungsbedarf in der Deckungsrückstellung
 \end{itemize}
 \end{itemize}
+
+\subsubsection{Bewertungsreserven}
+Bewertungsreserven (alternativ: Stille Reserven) einer Kapitalanlage (z. B. eines Wertpapiers) entstehen, wenn der Zeitwert dieser Kapitalanlage
+über dem Buchwert der Kapitalanlage liegt. Im anderen Fall (Zeitwert kleiner
+als Buchwert) entstehen stille Lasten.
 
 \subsubsection{Rechtliche Grundlagen}
 Durch Bilanzierung von Kapitalanlagen nach Niederwertprinzip entstehen Bewertungsreserven:

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.3.2)  4 OCT 2022 19:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.3.2)  5 OCT 2022 11:39
 entering extended mode
 **"./Ich werde Versicherungsmathematiker.tex"
 ("Ich werde Versicherungsmathematiker.tex"
@@ -1059,6 +1059,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [16]
+Overfull \hbox (8.93564pt too wide) in paragraph at lines 601--602
+\T1/ptm/m/n/12 satz Poisson-verteilter Scha-den-auf-wän-de über-führt den log-l
+ink-Ansatz das ur-sprüng-
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1068,16 +1073,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [17]
-Overfull \hbox (12.52153pt too wide) in paragraph at lines 632--633
+Overfull \hbox (12.52153pt too wide) in paragraph at lines 650--651
 []\T1/ptm/m/n/12 Auÿerdem Ab-wick-lungs-mus-ter für die er-war-te-ten (Schaden-
 )Quoten-Zuwächse $[]$,
- []
-
-
-Overfull \hbox (16.4404pt too wide) in paragraph at lines 646--647
-[]\T1/ptm/m/n/12 Wie Ad-di-ti-ves Ver-fah-ren Vo-lu-men-ma-ÿe $\OML/ztmcm/m/it/
-12 []; :::; []$\T1/ptm/m/n/12 . Zu-sätz-lich a-priori-Schätzer $[]\OML/ztmcm/
-m/it/12 ; :::; []$
  []
 
 
@@ -1089,19 +1087,33 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [18]
-<Bilder/Abwicklungsverfahren.png, id=182, 663.98062pt x 280.79906pt>
+Overfull \hbox (16.4404pt too wide) in paragraph at lines 664--665
+[]\T1/ptm/m/n/12 Wie Ad-di-ti-ves Ver-fah-ren Vo-lu-men-ma-ÿe $\OML/ztmcm/m/it/
+12 []; :::; []$\T1/ptm/m/n/12 . Zu-sätz-lich a-priori-Schätzer $[]\OML/ztmcm/
+m/it/12 ; :::; []$
+ []
+
+<Bilder/Abwicklungsverfahren.png, id=183, 663.98062pt x 280.79906pt>
 File: Bilder/Abwicklungsverfahren.png Graphic file (type png)
 <use Bilder/Abwicklungsverfahren.png>
-Package pdftex.def Info: Bilder/Abwicklungsverfahren.png  used on input line 66
-0.
+Package pdftex.def Info: Bilder/Abwicklungsverfahren.png  used on input line 67
+8.
 (pdftex.def)             Requested size: 341.43436pt x 144.39247pt.
-<Bilder/Abwicklungsverfahren_PundC.png, id=183, 638.385pt x 275.52937pt>
+<Bilder/Abwicklungsverfahren_PundC.png, id=184, 638.385pt x 275.52937pt>
 File: Bilder/Abwicklungsverfahren_PundC.png Graphic file (type png)
 <use Bilder/Abwicklungsverfahren_PundC.png>
 Package pdftex.def Info: Bilder/Abwicklungsverfahren_PundC.png  used on input l
-ine 664.
+ine 682.
 (pdftex.def)             Requested size: 426.79134pt x 184.2043pt.
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[19 <./Bilder/Abwicklungsverfahren.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1110,22 +1122,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[19 <./Bilder/Abwicklungsverfahren.png> <./Bilder/Abwicklungsverfahren_PundC.pn
-g>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[20]
+[20 <./Bilder/Abwicklungsverfahren_PundC.png>]
 Kapitel 3.
-<Bilder/Korbinian.png, id=198, 762.85pt x 1047.915pt>
+<Bilder/Korbinian.png, id=202, 762.85pt x 1047.915pt>
 File: Bilder/Korbinian.png Graphic file (type png)
 <use Bilder/Korbinian.png>
-Package pdftex.def Info: Bilder/Korbinian.png  used on input line 700.
+Package pdftex.def Info: Bilder/Korbinian.png  used on input line 718.
 (pdftex.def)             Requested size: 341.43436pt x 469.015pt.
 [21
 
@@ -1160,34 +1162,34 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Kapitel 4.
 Package textcomp Info: Symbol \textasciidieresis not provided by
 (textcomp)             font family ptm in TS1 encoding.
-(textcomp)             Default family used instead on input line 849.
-<Bilder/Zustandsmodell_Leben1.png, id=238, 196.48407pt x 63.23625pt>
+(textcomp)             Default family used instead on input line 867.
+<Bilder/Zustandsmodell_Leben1.png, id=241, 196.48407pt x 63.23625pt>
 File: Bilder/Zustandsmodell_Leben1.png Graphic file (type png)
 <use Bilder/Zustandsmodell_Leben1.png>
 Package pdftex.def Info: Bilder/Zustandsmodell_Leben1.png  used on input line 8
-59.
+77.
 (pdftex.def)             Requested size: 235.7797pt x 75.8831pt.
-<Bilder/Zustandsmodell_Leben2.png, id=239, 173.89969pt x 108.405pt>
+<Bilder/Zustandsmodell_Leben2.png, id=242, 173.89969pt x 108.405pt>
 File: Bilder/Zustandsmodell_Leben2.png Graphic file (type png)
 <use Bilder/Zustandsmodell_Leben2.png>
 Package pdftex.def Info: Bilder/Zustandsmodell_Leben2.png  used on input line 8
-63.
+81.
 (pdftex.def)             Requested size: 208.67856pt x 130.08533pt.
 [25
 
  <./Bilder/Zustandsmodell_Leben1.png>]
-<Bilder/SterbetafelBsp2.png, id=249, 441.14813pt x 173.89969pt>
+<Bilder/SterbetafelBsp2.png, id=252, 441.14813pt x 173.89969pt>
 File: Bilder/SterbetafelBsp2.png Graphic file (type png)
 <use Bilder/SterbetafelBsp2.png>
-Package pdftex.def Info: Bilder/SterbetafelBsp2.png  used on input line 875.
+Package pdftex.def Info: Bilder/SterbetafelBsp2.png  used on input line 899.
 (pdftex.def)             Requested size: 441.14705pt x 173.89925pt.
 
-Overfull \hbox (14.35571pt too wide) in paragraph at lines 875--876
+Overfull \hbox (14.35571pt too wide) in paragraph at lines 899--900
  [][] 
  []
 
 
-Overfull \hbox (7.64415pt too wide) in paragraph at lines 877--878
+Overfull \hbox (7.64415pt too wide) in paragraph at lines 901--902
 []\T1/ptm/m/n/12 Auÿerdem stellt die DAV In-va-li-di-täts-wahr-scheinlch-kei-te
 n zur Ver-fü-gung. Das ent-hält Wahr-
  []
@@ -1211,107 +1213,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [27]
 
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 935.
-
-Missing character: There is no ä in font zptmcm7t!
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 937.
-
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 950.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 950.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 950.
-
-Missing character: There is no ä in font zptmcm7t!
-Missing character: There is no ä in font zptmcm7t!
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 956.
-
-Missing character: There is no ä in font zptmcm7t!
-
-LaTeX Warning: Command \" invalid in math mode on input line 957.
-
-Missing character: There is no ä in font zptmcm7t!
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\headheight}{14.49998pt}.
@@ -1320,15 +1221,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 964--967
+
+LaTeX Warning: Command \" invalid in math mode on input line 982.
+
+Missing character: There is no ä in font zptmcm7t!
+
+Underfull \hbox (badness 10000) in paragraph at lines 1014--1016
 
  []
 
-<Bilder/Ãœberschuss.png, id=276, 467.49657pt x 230.36063pt>
-File: Bilder/Ãœberschuss.png Graphic file (type png)
-<use Bilder/Ãœberschuss.png>
-Package pdftex.def Info: Bilder/Ãœberschuss.png  used on input line 988.
-(pdftex.def)             Requested size: 341.43436pt x 168.24971pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1337,12 +1238,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[29 <./Bilder/Ãœberschuss.png>]
-<Bilder/Kontributionsgleichung.png, id=286, 348.55219pt x 139.27031pt>
+[29]
+<Bilder/Ãœberschuss.png, id=288, 467.49657pt x 230.36063pt>
+File: Bilder/Ãœberschuss.png Graphic file (type png)
+<use Bilder/Ãœberschuss.png>
+Package pdftex.def Info: Bilder/Ãœberschuss.png  used on input line 1037.
+(pdftex.def)             Requested size: 341.43436pt x 168.24971pt.
+<Bilder/Kontributionsgleichung.png, id=289, 348.55219pt x 139.27031pt>
 File: Bilder/Kontributionsgleichung.png Graphic file (type png)
 <use Bilder/Kontributionsgleichung.png>
 Package pdftex.def Info: Bilder/Kontributionsgleichung.png  used on input line 
-998.
+1047.
 (pdftex.def)             Requested size: 341.43436pt x 136.43295pt.
 
 
@@ -1353,8 +1259,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[30 <./Bilder/Kontributionsgleichung.png>]
-Overfull \hbox (5.04903pt too wide) in paragraph at lines 1046--1047
+[30 <./Bilder/Ãœberschuss.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[31 <./Bilder/Kontributionsgleichung.png>]
+Overfull \hbox (5.04903pt too wide) in paragraph at lines 1100--1101
 []\T1/ptm/m/n/12 Versicherungsaufsichtsgesetz: best fest-ver-zins-li-chen An-la
 -gen und Zins-ab-si-che-rungs-
  []
@@ -1367,7 +1282,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[31]
+[32]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1376,16 +1291,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[32] ("Ich werde Versicherungsmathematiker.aux")
+[33] ("Ich werde Versicherungsmathematiker.aux")
 Package rerunfilecheck Info: File `"Ich werde Versicherungsmathematiker".out' h
 as not changed.
 (rerunfilecheck)             Checksum: 956070DB07EA4F9A98377707955A419D;290.
  ) 
 Here is how much of TeX's memory you used:
- 15785 strings out of 479618
- 234674 string characters out of 2881547
+ 15795 strings out of 479618
+ 234827 string characters out of 2881547
  770560 words of memory out of 3000000
- 32411 multiletter control sequences out of 15000+200000
+ 32413 multiletter control sequences out of 15000+200000
  450649 words of font info for 102 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,17n,74p,565b,538s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1397,10 +1312,10 @@ sfonts/cm/cmsy10.pfb><A:/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 <A:/MikTex/fonts/type1/urw/symbol/usyr.pfb><A:/MikTex/fonts/type1/urw/symbol/us
 yr.pfb><A:/MikTex/fonts/type1/urw/times/utmb8a.pfb><A:/MikTex/fonts/type1/urw/t
 imes/utmr8a.pfb><A:/MikTex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "Ich werde Versicherungsmathematiker.pdf" (33 pages, 4559820 
+Output written on "Ich werde Versicherungsmathematiker.pdf" (34 pages, 4566124 
 bytes).
 PDF statistics:
- 379 PDF objects out of 1000 (max. 8388607)
- 150 named destinations out of 1000 (max. 500000)
+ 392 PDF objects out of 1000 (max. 8388607)
+ 158 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -29,34 +29,38 @@
 \contentsline {subsubsection}{Tarifierungsverfahren}{13}{subsubsection*.30}%
 \contentsline {subsubsection}{Auswahl der Tarifmerkmale}{15}{subsubsection*.31}%
 \contentsline {subsubsection}{Abwicklungsmuster}{16}{subsubsection*.33}%
-\contentsline {subsubsection}{Basisverfahren der Schadenreservierung}{17}{subsubsection*.34}%
-\contentsline {subsubsection}{Erweiterung der Basisverfahren}{20}{subsubsection*.37}%
+\contentsline {subsubsection}{GLMs}{17}{subsubsection*.34}%
+\contentsline {subsubsection}{Basisverfahren der Schadenreservierung}{17}{subsubsection*.35}%
+\contentsline {subsubsection}{Erweiterung der Basisverfahren}{20}{subsubsection*.38}%
 \contentsline {chapter}{\numberline {3}Personenversicherungsmathematik}{21}{chapter.3}%
-\contentsline {subsubsection}{Modell}{22}{subsubsection*.39}%
-\contentsline {subsubsection}{Typische Rechnungsgrundlagen}{22}{subsubsection*.40}%
-\contentsline {subsubsection}{Risikomerkmale von Ausscheidewahrscheinlichkeiten}{22}{subsubsection*.41}%
-\contentsline {subsubsection}{Kosten}{23}{subsubsection*.42}%
-\contentsline {subsubsection}{Erfüllungsbetrag}{23}{subsubsection*.43}%
-\contentsline {subsubsection}{Leistungsbarwert}{23}{subsubsection*.44}%
-\contentsline {subsubsection}{Prämienbarwerte}{23}{subsubsection*.45}%
-\contentsline {subsubsection}{Reserven}{24}{subsubsection*.46}%
-\contentsline {subsubsection}{Versicherungsmathematische Bilanzgleichung}{24}{subsubsection*.47}%
-\contentsline {subsubsection}{Satz von Cantelli}{24}{subsubsection*.48}%
+\contentsline {subsubsection}{Modell}{22}{subsubsection*.40}%
+\contentsline {subsubsection}{Typische Rechnungsgrundlagen}{22}{subsubsection*.41}%
+\contentsline {subsubsection}{Risikomerkmale von Ausscheidewahrscheinlichkeiten}{22}{subsubsection*.42}%
+\contentsline {subsubsection}{Kosten}{23}{subsubsection*.43}%
+\contentsline {subsubsection}{Erfüllungsbetrag}{23}{subsubsection*.44}%
+\contentsline {subsubsection}{Leistungsbarwert}{23}{subsubsection*.45}%
+\contentsline {subsubsection}{Prämienbarwerte}{23}{subsubsection*.46}%
+\contentsline {subsubsection}{Reserven}{24}{subsubsection*.47}%
+\contentsline {subsubsection}{Versicherungsmathematische Bilanzgleichung}{24}{subsubsection*.48}%
+\contentsline {subsubsection}{Satz von Cantelli}{24}{subsubsection*.49}%
 \contentsline {chapter}{\numberline {4}Lebensversicherungsmathematik}{25}{chapter.4}%
-\contentsline {subsubsection}{Rechtliche Grundlagen}{25}{subsubsection*.49}%
-\contentsline {subsubsection}{Zustandsmodelle}{25}{subsubsection*.50}%
-\contentsline {subsubsection}{Sterbetafeln}{26}{subsubsection*.53}%
-\contentsline {subsubsection}{Rechnugszins}{26}{subsubsection*.55}%
-\contentsline {subsubsection}{Kosten}{27}{subsubsection*.56}%
-\contentsline {subsubsection}{Lebensversicherungsprodukte (Auswahl)}{27}{subsubsection*.57}%
-\contentsline {subsubsection}{Wiederholung}{27}{subsubsection*.58}%
-\contentsline {subsubsection}{Standardformeln und Bezeichnungen}{28}{subsubsection*.59}%
-\contentsline {subsubsection}{Umgang mit Kosten}{28}{subsubsection*.60}%
-\contentsline {subsubsection}{Prämien}{28}{subsubsection*.61}%
-\contentsline {subsubsection}{Rekursiver Ansatz Prämienkalkulation}{29}{subsubsection*.62}%
-\contentsline {subsubsection}{Rechtliche Grundlagen}{29}{subsubsection*.63}%
-\contentsline {subsubsection}{Kontributionsgleichung}{30}{subsubsection*.65}%
-\contentsline {subsubsection}{Rückstellung zur Beitragsrückerstattung}{30}{subsubsection*.67}%
-\contentsline {subsubsection}{Rechtliche Grundlagen}{31}{subsubsection*.68}%
-\contentsline {subsubsection}{Sicherungsbedarf}{31}{subsubsection*.69}%
-\contentsline {subsubsection}{Anspruchberechtigung}{32}{subsubsection*.70}%
+\contentsline {subsubsection}{Rechtliche Grundlagen}{25}{subsubsection*.50}%
+\contentsline {subsubsection}{Zustandsmodelle}{25}{subsubsection*.51}%
+\contentsline {subsubsection}{Sterbetafeln}{26}{subsubsection*.54}%
+\contentsline {subsubsection}{Rechnugszins}{27}{subsubsection*.56}%
+\contentsline {subsubsection}{Kosten}{27}{subsubsection*.57}%
+\contentsline {subsubsection}{Lebensversicherungsprodukte (Auswahl)}{27}{subsubsection*.58}%
+\contentsline {subsubsection}{Wiederholung}{27}{subsubsection*.59}%
+\contentsline {subsubsection}{Standardformeln und Bezeichnungen}{28}{subsubsection*.60}%
+\contentsline {subsubsection}{Umgang mit Kosten}{28}{subsubsection*.61}%
+\contentsline {subsubsection}{Prämien}{29}{subsubsection*.62}%
+\contentsline {subsubsection}{Kosten}{29}{subsubsection*.63}%
+\contentsline {subsubsection}{Äquivalenzprinzip für einen Vertrag}{29}{subsubsection*.64}%
+\contentsline {subsubsection}{Rekursiver Ansatz Prämienkalkulation}{29}{subsubsection*.65}%
+\contentsline {subsubsection}{Rechtliche Grundlagen}{30}{subsubsection*.66}%
+\contentsline {subsubsection}{Kontributionsgleichung}{30}{subsubsection*.68}%
+\contentsline {subsubsection}{Rückstellung zur Beitragsrückerstattung}{31}{subsubsection*.70}%
+\contentsline {subsubsection}{Bewertungsreserven}{32}{subsubsection*.71}%
+\contentsline {subsubsection}{Rechtliche Grundlagen}{32}{subsubsection*.72}%
+\contentsline {subsubsection}{Sicherungsbedarf}{32}{subsubsection*.73}%
+\contentsline {subsubsection}{Anspruchberechtigung}{33}{subsubsection*.74}%
