@@ -751,6 +751,8 @@ Annahme: Schäden innerhalb von $n+1$ Jahren vollständig abgewickelt. In Ausnah
 		\tensor[_{s}]{p}{}_x(G) \coloneqq 1-\tensor[_{s}]{q}{}_x(G) = \mathbb{P}[X>x+s|X>x]
 	\end{align}
 	\item mehrjährige Verbleibewahrscheinlichkeit (noch mind. $k$ Jahre in HGSH verbleiben): $\tensor[_{k}]{p}{}_x = \prod_{j=0}^{k-1}p_{x+j}$
+	\item Zwillingsfreiheit: nur eine Ausscheideursache führt zum Ausscheiden.
+	\item Zyklenfreiheit: keine Übergänge von Nebengesamtheit in Hauptgesamtheit
 \end{itemize}
 
 \subsubsection{Typische Rechnungsgrundlagen}
@@ -758,6 +760,8 @@ Annahme: Schäden innerhalb von $n+1$ Jahren vollständig abgewickelt. In Ausnah
 	\item biometrische Rechnungsgrundlagen / Ausscheideordnung
 	\item Rechnungszins
 	\item Kosten
+	\item Rechnungsgrundlage 1. Ordnung: vorsichtig, inkl. Sicherheit
+	\item Rechnungsgrundlage 2. Ordnung: Erwartungswert, keine Sicherheiten
 \end{itemize}
 
 \subsubsection{Risikomerkmale von Ausscheidewahrscheinlichkeiten}
@@ -826,10 +830,14 @@ Annahme: Schäden innerhalb von $n+1$ Jahren vollständig abgewickelt. In Ausnah
 \subsubsection{Versicherungsmathematische Bilanzgleichung}
 \begin{itemize}
 	\item $\tensor[_{m}]{V}{}_x + \tensor[_{m}]{\hat{P}}{}_x = \tensor[_{m}]{\hat{L}}{}_x + vp_{x+m} \ \tensor[_{m+1}]{V}{}_x$
-	\item Spar- und Risikoprämie: $\tensor[_{m}]{V}{}_x + \tensor[_{m}]{\hat{P}}{}_x = \tensor[_{m}]{P}{}_x^S + \tensor[_{m}]{P}{}_x^R$
+	\item Spar- und Risikoprämie: 
+		\begin{align}
+			\tensor[_{m}]{V}{}_x + \tensor[_{m}]{\hat{P}}{}_x &= \tensor[_{m}]{P}{}_x^S + \tensor[_{m}]{P}{}_x^R \\
+			\Leftrightarrow \tensor[_{m}]{\hat{P}}{}_x &= v \cdot \tensor[_{m+1}]{V}{}_x - \tensor[_{m}]{V}{}_x + \tensor[_{m}]{\hat{L}}{}_x - v \cdot q_{x+m} \cdot \tensor[_{m+1}]{V}{}_x
+		\end{align}
 \end{itemize}
 
-\newpage
+\chapter{Pensionenversicherung}
 \subsubsection{Bevölkerungsmodell - Ausscheidewahrscheinlichkeiten q und Verbleibewahrscheinlichkeiten p}
 
 \begin{figure}[ht]
@@ -842,6 +850,17 @@ Annahme: Schäden innerhalb von $n+1$ Jahren vollständig abgewickelt. In Ausnah
 	\includegraphics[width=.75\textwidth]{Bilder/Bevoelkerungsmodell2.png}
 \end{figure}
 
+\subsubsection{Rechnungsgrundlagen - Steuerbilanz / Handelsbilanz}
+\begin{itemize}
+	\item Fluktuation: Ausscheiden eines Mitarbeiters ohne Versorgungsfall (Kündigung)
+	\item Steuerbilanz: Zinssatz 6$\%$ vorgeschrieben, liegt über durchschnittlichem Marktzins der letzten 10 Geschäftsjahre $\Rightarrow$ Unterbewertung der Verpflichtungen
+	\item Steuerbilanz: künftige Erhöhungen nur einbeziehbar, wenn sie dem Grunde und der Höhe nach feststehen
+	\item Handelsbilanz: bestmögliche Schätzung vornehmen $\Rightarrow$ Unterbewertung in steuerbilanzieller Bewertung
+	\item Berechnung Deckungsrückstellung regulierte Pensionskassen:
+		\begin{itemize}
+			\item Rechnungsgrundlagen vorsichtig wählen, Sicherheitszu-/abschläge
+		\end{itemize}
+\end{itemize}
 
 \subsubsection{Leistungsbarwerte}
 
@@ -1116,6 +1135,7 @@ Gesucht ist dann Prämienzahlungsstrom $P$, sodass $\tensor[_0]{V}{}_x - \text{A
 \large \textbf{Überschussbeteiligung}
 \normalsize 
 \subsubsection{Rechtliche Grundlagen}
+
 Bei Kalkulation von Beiträgen und Leistungen vorsichtige Herangehensweise, daher idR Überschüsse.
 \begin{itemize}
 \item Versicherungsvertragsgesetz (§153 (1) VVG)
@@ -1133,7 +1153,7 @@ Regelungen, die angemessen Beteiligung der VN am Überschuss sicherstellen (Mind
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width = .8\textwidth]{Bilder/Überschuss.png}
+	\includegraphics[width= 0.8\textwidth]{Bilder/Ueberschuss.png}
 \end{figure}
 
 \subsubsection{Kontributionsgleichung}
@@ -1228,6 +1248,9 @@ Beteiligung an den Bewertungsreserven nur für anspruchsberechtigte Vertäge
 		\item keine Übertragung der Altersrückstellung für nicht-substituive KV, subst. KV mit Beginn vor 01.01.2009 und Krankentagegeldversicherung
 		\item Übertragung für subst. KV mit Beginn nach 01.01.2009 (Wert: gleicher, der sich bei Basistarif ergeben hätte)
 		\end{itemize}
+	\item Periodensterbetafel: zu einem bestimmten Zeitraum
+	\item Generationensterbetafel: zu einer Geburtskohorte
+	\item Sterbetafel mit Referenzjahr: Prognose
 \end{itemize}
 
 \subsubsection{Zustandsmodell KV - Teil 1}
@@ -1238,7 +1261,7 @@ Beteiligung an den Bewertungsreserven nur für anspruchsberechtigte Vertäge
 
 \subsubsection{Rechnungsgrundlagen PKV}
 \begin{itemize}
-	\item Rechnungszins: Obergrenze 3,5$\%$, nicht notwendigerweise für ganze Laufzeit garantiert
+	\item Rechnungszins: Obergrenze 3,5$\%$, orientiert sich an AUZ, nicht notwendigerweise für ganze Laufzeit garantiert
 	\item Ausschreideordnung: bei Tod und Storno. Für $x$-jährige Person $q^{Tod}_x \eqqcolon q_x$, $q_x^{Storno} \eqqcolon w_x$, Verbleibewahrscheinlichkeit $p_x=1-q_x-w_x$
 	\item Übertrittswahrscheinlichkeiten
 	\item Sonstige Zuschläge
@@ -1270,6 +1293,7 @@ Beteiligung an den Bewertungsreserven nur für anspruchsberechtigte Vertäge
 		\begin{itemize}
 			\item Wartezeit- und Selektionsersparnisse: Neukunden sind bessere Risiken als gleichaltrige Kunden (Ursachen: gewisse Leistungen erst nach 3 Monaten, Risikoprüfung bei Vertragsabschluss)
 			\item S-Kosten: Leistungsausgaben bedingt durch Schwangerschaft, Geburt und Mutterschutz (Umlage durch allg. Gleichbehandlungsgesetz, geschlechtsunabh. Kalkulation)
+			\item Tatsächlicher Grundkopfschaden: abzüglich Nettorisikozuschläge, einschlie{\ss}lich Leistungen wegen Schwanger- und Mutterschaft, rechnungsmä{\ss}ige Profilwerte nutzen, für jedes Alter abzugrenzen
 		\end{itemize}
 \end{itemize}
 
@@ -1278,7 +1302,7 @@ Beteiligung an den Bewertungsreserven nur für anspruchsberechtigte Vertäge
 	\item fixiere Alter $x_0$, bestimme für jedes Alter $k_x \coloneqq \frac{K_x}{K_{x_0}}$
 	\item $k_x$: normierter Kopfschaden zum Alter $x$
 	\item Gesamtheit aller $k_x$ hei{\ss}t Profil
-	\item Grundkopfschaden: $G \coloneqq K_{x_0}} \Rightarrow K_x=k_x \cdot G$
+	\item Grundkopfschaden: $G \coloneqq K_{x_0} \Rightarrow K_x=k_x \cdot G$
 	\item Zerlegung in Grundkopfschaden und Profil ist Standard bei Bestimmung der Kopfschäden in der PKV
 	\item Vorteile: Profile für mehrere Tarife nutzbar und im Zeitablauf stabil, vereinfachen Kalkulation
 \end{itemize}
@@ -1350,14 +1374,21 @@ Beteiligung an den Bewertungsreserven nur für anspruchsberechtigte Vertäge
 			\tensor[_t]{\hat{L}}{}_x = K_{x+t}+w_{x+t} \cdot v \cdot \text{\textit{Ü}}_{x+t+1}
 		\end{equation}
 	\item $\text{\textit{Ü}}_{x+t+1}$ ist die Übertragungswertzahlung bei Storno in Vertragsjahr $t+1$, Rechnung mit $\text{\textit{Ü}}_{x}=0$
-	\item Leistungsbarwert \textcolor{red}{mit Übertragungswertzahlung}:
+	\item Leistungsbarwert \textcolor{red}{mit Übertragungswertzahlung (ab 2009)}:
 		\begin{align}
 			A_x \coloneqq \sum_{t=0}^{\omega-x} v^t \cdot \tensor[_t]{p}{}_x \cdot (K_{x+t} \color{red} + w_{x+t}\cdot v \cdot \text{\textit{Ü}}_{x+t+1} \color{black})
 		\end{align}
 \end{itemize}
 
-\subsubsection{Prämienkalkulation}
-Kann man hoffentlich weglassen...
+\subsubsection{Prämienanpassung}
+\begin{equation}
+	\tensor[_{m}]{V}{}_x + B_u^{a/n} \cdot \text{\textit{ä}}_u = A_u + \Delta \cdot B_u^{a/n} \cdot \text{\textit{ä}}_u + \gamma \cdot \text{\textit{ä}}_u + \alpha _u^{''} \cdot max \{B_u^{a/n}-B^a;0\}
+\end{equation}
+
+\subsubsection{Altenproblem}
+	\begin{equation}
+		P_u^{a/n}=(1+\lambda) \cdot P^a + \lambda \cdot (P_u^a-P^a)
+	\end{equation}
 
 \subsubsection{Äquivalenzgleichung}
 \begin{itemize}
@@ -1371,27 +1402,6 @@ Kann man hoffentlich weglassen...
 			\tensor[_m]{V}{}_x^{(netto)} + P^a \cdot \text{\textit{ä}}^{\ a}_u = A_u^a
 		\end{equation}
 \end{itemize}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
